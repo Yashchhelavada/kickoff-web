@@ -1,9 +1,8 @@
-
 import { useState, useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import MatchTicker from '@/components/MatchTicker';
 import MatchCard from '@/components/MatchCard';
-import { Trophy, Star, TrendingUp, Users, Calendar, Bell } from 'lucide-react';
+import { Trophy, Star, TrendingUp, Users, Calendar, Bell, Clock } from 'lucide-react';
 
 const Index = () => {
   const [liveMatches] = useState([
