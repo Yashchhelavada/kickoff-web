@@ -8,8 +8,8 @@ import { useFootballData } from '@/hooks/useFootballData';
 const Index = () => {
   const { liveMatches, todayMatches, isLoading, error } = useFootballData();
 
-  // Separate upcoming matches from today's matches
-  const upcomingMatches = todayMatches.filter(match => match.status === 'SCHEDULED');
+  // Get finished matches from today's matches
+  const finishedMatches = todayMatches.filter(match => match.status === 'FT').slice(0, 3);
 
   const [topLeagues] = useState([
     { name: 'Premier League', country: 'England', teams: 20, icon: '🏴󠁧󠁢󠁥󠁮󠁧󠁿' },
@@ -46,7 +46,7 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-black">
       <Navigation />
       <MatchTicker />
       
@@ -57,7 +57,7 @@ const Index = () => {
           {/* Hero Section */}
           <section className="text-center py-8 animate-slide-in-up">
             <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">
-              Live Football Experience
+              Kickoff!
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Follow live matches, get real-time scores, and dive deep into football analytics with our modern platform.
@@ -112,21 +112,21 @@ const Index = () => {
             )}
           </section>
 
-          {/* Upcoming Matches Section */}
+          {/* Finished Matches Section */}
           <section className="animate-slide-in-up" style={{ animationDelay: '0.2s' }}>
             <div className="flex items-center space-x-3 mb-6">
-              <Clock className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-bold">Upcoming Matches</h2>
+              <Trophy className="w-6 h-6 text-primary" />
+              <h2 className="text-2xl font-bold">Finished Matches</h2>
             </div>
-            {upcomingMatches.length > 0 ? (
+            {finishedMatches.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {upcomingMatches.slice(0, 6).map((match) => (
+                {finishedMatches.map((match) => (
                   <MatchCard key={match.id} match={match} />
                 ))}
               </div>
             ) : (
               <div className="glass-card p-8 rounded-xl text-center">
-                <p className="text-muted-foreground">No upcoming matches scheduled for today</p>
+                <p className="text-muted-foreground">No finished matches available for today</p>
               </div>
             )}
           </section>
