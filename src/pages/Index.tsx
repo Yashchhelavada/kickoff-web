@@ -1,62 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import MatchTicker from '@/components/MatchTicker';
 import MatchCard from '@/components/MatchCard';
 import { Trophy, Star, TrendingUp, Users, Calendar, Bell, Clock } from 'lucide-react';
+import { useFootballData } from '@/hooks/useFootballData';
 
 const Index = () => {
-  const [liveMatches] = useState([
-    {
-      id: '1',
-      homeTeam: { name: 'Arsenal', logo: '', score: 2 },
-      awayTeam: { name: 'Chelsea', logo: '', score: 1 },
-      status: 'LIVE' as const,
-      minute: '78\'',
-      league: 'Premier League',
-      venue: 'Emirates Stadium',
-      attendance: '60,000'
-    },
-    {
-      id: '2',
-      homeTeam: { name: 'Barcelona', logo: '', score: 1 },
-      awayTeam: { name: 'Real Madrid', logo: '', score: 1 },
-      status: 'HT' as const,
-      minute: 'HT',
-      league: 'La Liga',
-      venue: 'Camp Nou',
-      attendance: '99,354'
-    },
-    {
-      id: '3',
-      homeTeam: { name: 'Liverpool', logo: '', score: 3 },
-      awayTeam: { name: 'Man City', logo: '', score: 2 },
-      status: 'FT' as const,
-      league: 'Premier League',
-      venue: 'Anfield',
-      attendance: '54,074'
-    }
-  ]);
+  const { liveMatches, todayMatches, isLoading, error } = useFootballData();
 
-  const [upcomingMatches] = useState([
-    {
-      id: '4',
-      homeTeam: { name: 'PSG', logo: '' },
-      awayTeam: { name: 'Bayern Munich', logo: '' },
-      status: 'SCHEDULED' as const,
-      time: '20:00',
-      league: 'Champions League',
-      venue: 'Parc des Princes'
-    },
-    {
-      id: '5',
-      homeTeam: { name: 'Juventus', logo: '' },
-      awayTeam: { name: 'AC Milan', logo: '' },
-      status: 'SCHEDULED' as const,
-      time: '18:45',
-      league: 'Serie A',
-      venue: 'Allianz Stadium'
-    }
-  ]);
+  // Separate upcoming matches from today's matches
+  const upcomingMatches = todayMatches.filter(match => match.status === 'SCHEDULED');
 
   const [topLeagues] = useState([
     { name: 'Premier League', country: 'England', teams: 20, icon: '🏴󠁧󠁢󠁥󠁮󠁧󠁿' },
@@ -88,6 +41,10 @@ const Index = () => {
     }
   ]);
 
+  if (error) {
+    console.error('Football data error:', error);
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -117,6 +74,24 @@ const Index = () => {
             </div>
           </section>
 
+          {/* Loading State */}
+          {isLoading && (
+            <div className="flex justify-center items-center py-12">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+              <span className="ml-4 text-muted-foreground">Loading live matches...</span>
+            </div>
+          )}
+
+          {/* Error State */}
+          {error && (
+            <div className="bg-destructive/10 border border-destructive/20 rounded-xl p-6 text-center">
+              <p className="text-destructive">Unable to load live data. Showing cached results.</p>
+              <p className="text-sm text-muted-foreground mt-2">
+                Please check your internet connection or try again later.
+              </p>
+            </div>
+          )}
+
           {/* Live Matches Section */}
           <section className="animate-slide-in-up" style={{ animationDelay: '0.1s' }}>
             <div className="flex items-center space-x-3 mb-6">
@@ -124,11 +99,17 @@ const Index = () => {
               <h2 className="text-2xl font-bold">Live Matches</h2>
               <span className="text-sm text-muted-foreground">({liveMatches.length} live)</span>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {liveMatches.map((match) => (
-                <MatchCard key={match.id} match={match} />
-              ))}
-            </div>
+            {liveMatches.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {liveMatches.map((match) => (
+                  <MatchCard key={match.id} match={match} />
+                ))}
+              </div>
+            ) : (
+              <div className="glass-card p-8 rounded-xl text-center">
+                <p className="text-muted-foreground">No live matches at the moment</p>
+              </div>
+            )}
           </section>
 
           {/* Upcoming Matches Section */}
@@ -137,11 +118,17 @@ const Index = () => {
               <Clock className="w-6 h-6 text-primary" />
               <h2 className="text-2xl font-bold">Upcoming Matches</h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {upcomingMatches.map((match) => (
-                <MatchCard key={match.id} match={match} />
-              ))}
-            </div>
+            {upcomingMatches.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {upcomingMatches.slice(0, 6).map((match) => (
+                  <MatchCard key={match.id} match={match} />
+                ))}
+              </div>
+            ) : (
+              <div className="glass-card p-8 rounded-xl text-center">
+                <p className="text-muted-foreground">No upcoming matches scheduled for today</p>
+              </div>
+            )}
           </section>
 
           {/* Top Leagues Section */}

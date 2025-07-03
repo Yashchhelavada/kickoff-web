@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useFootballData } from '@/hooks/useFootballData';
 
 interface TickerMatch {
   id: string;
@@ -12,12 +12,25 @@ interface TickerMatch {
 }
 
 const MatchTicker = () => {
-  const [matches] = useState<TickerMatch[]>([
-    { id: '1', homeTeam: 'Arsenal', awayTeam: 'Chelsea', homeScore: 2, awayScore: 1, minute: '78\'', status: 'LIVE' },
-    { id: '2', homeTeam: 'Barcelona', awayTeam: 'Real Madrid', homeScore: 1, awayScore: 1, minute: '45\'', status: 'HT' },
-    { id: '3', homeTeam: 'Liverpool', awayTeam: 'Man City', homeScore: 3, awayScore: 2, minute: 'FT', status: 'FT' },
-    { id: '4', homeTeam: 'PSG', awayTeam: 'Bayern', homeScore: 0, awayScore: 1, minute: '23\'', status: 'LIVE' },
-  ]);
+  const { liveMatches, isLoading } = useFootballData();
+
+  // Transform real-time data for ticker display
+  const tickerMatches: TickerMatch[] = liveMatches.map(match => ({
+    id: match.id,
+    homeTeam: match.homeTeam.name,
+    awayTeam: match.awayTeam.name,
+    homeScore: match.homeTeam.score || 0,
+    awayScore: match.awayTeam.score || 0,
+    minute: match.minute || 'LIVE',
+    status: match.status,
+  }));
+
+  // Fallback data when no live matches or loading
+  const fallbackMatches: TickerMatch[] = [
+    { id: '1', homeTeam: 'Loading...', awayTeam: 'Live Data', homeScore: 0, awayScore: 0, minute: '...', status: 'LIVE' }
+  ];
+
+  const matches = tickerMatches.length > 0 ? tickerMatches : fallbackMatches;
 
   return (
     <div className="fixed top-16 md:top-16 left-0 right-0 z-40 bg-card/80 backdrop-blur-sm border-b border-border overflow-hidden">
