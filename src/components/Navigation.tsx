@@ -1,10 +1,17 @@
 
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Home, Calendar, Users, User, Trophy, Bell } from 'lucide-react';
+import { Home, Calendar, Users, User, Trophy, Bell, Sun, Moon } from 'lucide-react';
 
 const Navigation = () => {
   const [hasNotifications, setHasNotifications] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+    // Toggle dark class on document
+    document.documentElement.classList.toggle('dark');
+  };
 
   const navItems = [
     { icon: Home, label: 'Home', path: '/' },
@@ -23,7 +30,7 @@ const Navigation = () => {
             <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center">
               <Trophy className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl font-bold neon-text">FootballLive</span>
+            <span className="text-xl font-bold neon-text">KickOff!</span>
           </div>
           
           <div className="flex items-center space-x-8">
@@ -46,6 +53,16 @@ const Navigation = () => {
           </div>
 
           <div className="flex items-center space-x-4">
+            <button 
+              onClick={toggleTheme}
+              className="p-2 rounded-lg hover:bg-muted/50 transition-colors bg-gradient-to-r from-cyan-400/20 to-blue-500/20 border border-cyan-400/30"
+            >
+              {isDarkMode ? (
+                <Sun className="w-5 h-5 text-yellow-400" />
+              ) : (
+                <Moon className="w-5 h-5 text-blue-400" />
+              )}
+            </button>
             <button className="relative p-2 rounded-lg hover:bg-muted/50 transition-colors">
               <Bell className="w-5 h-5" />
               {hasNotifications && (

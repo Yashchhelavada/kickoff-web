@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import MatchTicker from '@/components/MatchTicker';
+import FinishedMatchesTicker from '@/components/FinishedMatchesTicker';
 import MatchCard from '@/components/MatchCard';
 import { Trophy, Star, TrendingUp, Users, Calendar, Bell, Clock } from 'lucide-react';
 import { useFootballData } from '@/hooks/useFootballData';
@@ -8,8 +9,10 @@ import { useFootballData } from '@/hooks/useFootballData';
 const Index = () => {
   const { liveMatches, todayMatches, isLoading, error } = useFootballData();
 
-  // Get finished matches from today's matches
-  const finishedMatches = todayMatches.filter(match => match.status === 'FT').slice(0, 3);
+  // Get finished matches from today's matches (filtered for FT status)
+  const finishedMatches = todayMatches
+    .filter(match => match.status === 'FT')
+    .slice(0, 6);
 
   const [topLeagues] = useState([
     { name: 'Premier League', country: 'England', teams: 20, icon: '🏴󠁧󠁢󠁥󠁮󠁧󠁿' },
@@ -49,9 +52,10 @@ const Index = () => {
     <div className="min-h-screen bg-black">
       <Navigation />
       <MatchTicker />
+      <FinishedMatchesTicker />
       
       {/* Main Content */}
-      <main className="pt-32 md:pt-28 pb-20 md:pb-8">
+      <main className="pt-40 md:pt-36 pb-20 md:pb-8">
         <div className="container mx-auto px-4 space-y-8">
           
           {/* Hero Section */}
@@ -115,18 +119,25 @@ const Index = () => {
           {/* Finished Matches Section */}
           <section className="animate-slide-in-up" style={{ animationDelay: '0.2s' }}>
             <div className="flex items-center space-x-3 mb-6">
-              <Trophy className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-bold">Finished Matches</h2>
+              <Trophy className="w-6 h-6 text-purple-400" />
+              <h2 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                Today's Finished Matches
+              </h2>
+              <span className="text-sm text-muted-foreground">({finishedMatches.length} completed)</span>
             </div>
             {finishedMatches.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {finishedMatches.map((match) => (
                   <MatchCard key={match.id} match={match} />
                 ))}
               </div>
             ) : (
-              <div className="glass-card p-8 rounded-xl text-center">
+              <div className="glass-card p-8 rounded-xl text-center border border-purple-500/20">
+                <div className="mb-4">
+                  <Trophy className="w-12 h-12 text-purple-400 mx-auto opacity-50" />
+                </div>
                 <p className="text-muted-foreground">No finished matches available for today</p>
+                <p className="text-sm text-muted-foreground/70 mt-2">Check back later for completed match results</p>
               </div>
             )}
           </section>
