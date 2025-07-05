@@ -15,14 +15,14 @@ const Teams = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-background">
       <Navigation />
       
       <main className="pt-20 md:pt-20 pb-20 md:pb-8">
         <div className="container mx-auto px-4 space-y-8">
           
           <section className="text-center py-8">
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent mb-4">
               Football Teams
             </h1>
             <p className="text-xl text-muted-foreground">Discover top football clubs worldwide</p>
@@ -31,7 +31,7 @@ const Teams = () => {
           <section>
             <div className="flex items-center space-x-3 mb-6">
               <Users className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-bold">Top Teams</h2>
+              <h2 className="text-2xl font-bold text-foreground">Top Teams</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {topTeams.map((team, index) => (
@@ -39,7 +39,7 @@ const Teams = () => {
                   <div className="flex items-center space-x-4 mb-4">
                     <div className="text-4xl">{team.icon}</div>
                     <div>
-                      <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">{team.name}</h3>
+                      <h3 className="font-semibold text-lg group-hover:text-primary transition-colors text-foreground">{team.name}</h3>
                       <p className="text-sm text-muted-foreground">{team.league}</p>
                     </div>
                   </div>

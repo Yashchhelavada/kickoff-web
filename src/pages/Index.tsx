@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import MatchTicker from '@/components/MatchTicker';
 import FinishedMatchesTicker from '@/components/FinishedMatchesTicker';
@@ -10,6 +11,7 @@ import { useFootballData } from '@/hooks/useFootballData';
 import { getTransferNews } from '@/services/transferNews';
 
 const Index = () => {
+  const navigate = useNavigate();
   const { liveMatches, todayMatches, isLoading, error } = useFootballData();
   const transferNews = getTransferNews();
 
@@ -32,7 +34,7 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-background">
       <Navigation />
       <MatchTicker />
       <FinishedMatchesTicker />
@@ -64,18 +66,24 @@ const Index = () => {
               </div>
             </div>
             <div className="relative z-10">
-              <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">
+              <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent mb-4">
                 KickOff!
               </h1>
               <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
                 Follow live matches, get real-time scores, and dive deep into football analytics with our modern platform.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="px-8 py-4 bg-primary text-primary-foreground rounded-xl font-semibold hover:neon-glow transition-all duration-300 transform hover:scale-105">
+                <button 
+                  onClick={() => navigate('/notifications')}
+                  className="px-8 py-4 bg-primary text-primary-foreground rounded-xl font-semibold hover:neon-glow transition-all duration-300 transform hover:scale-105"
+                >
                   <Bell className="w-5 h-5 inline mr-2" />
                   Enable Live Notifications
                 </button>
-                <button className="px-8 py-4 glass-card rounded-xl font-semibold hover:bg-muted/10 transition-all duration-300">
+                <button 
+                  onClick={() => navigate('/matches')}
+                  className="px-8 py-4 glass-card rounded-xl font-semibold hover:bg-muted/10 transition-all duration-300 text-foreground"
+                >
                   <Calendar className="w-5 h-5 inline mr-2" />
                   View Full Schedule
                 </button>
