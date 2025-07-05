@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Home, Calendar, Users, User, Trophy, Bell, Sun, Moon, Zap } from 'lucide-react';
 
@@ -7,9 +7,33 @@ const Navigation = () => {
   const [hasNotifications, setHasNotifications] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(true);
 
+  // Initialize dark mode on component mount
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      setIsDarkMode(true);
+      document.documentElement.classList.add('dark');
+    } else {
+      setIsDarkMode(false);
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
+
   const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-    document.documentElement.classList.toggle('dark');
+    const newTheme = !isDarkMode;
+    setIsDarkMode(newTheme);
+    
+    if (newTheme) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+      document.body.style.background = 'linear-gradient(135deg, hsl(210 30% 8%) 0%, hsl(210 40% 6%) 100%)';
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+      document.body.style.background = 'linear-gradient(135deg, hsl(210 30% 98%) 0%, hsl(210 40% 95%) 100%)';
+    }
   };
 
   const navItems = [

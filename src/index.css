@@ -44,6 +44,36 @@ All colors MUST be HSL.
     --neon-purple: 270 100% 50%;
     --neon-green: 120 100% 50%;
   }
+
+  .light {
+    --background: 210 30% 98%;
+    --foreground: 210 30% 8%;
+
+    --card: 210 30% 95%;
+    --card-foreground: 210 30% 8%;
+
+    --popover: 210 30% 95%;
+    --popover-foreground: 210 30% 8%;
+
+    --primary: 175 100% 40%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 30% 90%;
+    --secondary-foreground: 210 30% 8%;
+
+    --muted: 210 30% 90%;
+    --muted-foreground: 215 20.2% 40%;
+
+    --accent: 210 30% 90%;
+    --accent-foreground: 210 30% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 30% 85%;
+    --input: 210 30% 90%;
+    --ring: 175 100% 40%;
+  }
 }
 
 @layer base {
@@ -55,6 +85,11 @@ All colors MUST be HSL.
     @apply bg-background text-foreground font-inter;
     background: linear-gradient(135deg, hsl(210 30% 8%) 0%, hsl(210 40% 6%) 100%);
     min-height: 100vh;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .light body {
+    background: linear-gradient(135deg, hsl(210 30% 98%) 0%, hsl(210 40% 95%) 100%);
   }
 }
 
@@ -72,6 +107,12 @@ All colors MUST be HSL.
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .light .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
   }
   
   .gradient-border {
@@ -117,6 +158,15 @@ All colors MUST be HSL.
   }
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 .animate-pulse-neon {
   animation: pulse-neon 2s ease-in-out infinite;
 }
@@ -127,6 +177,10 @@ All colors MUST be HSL.
 
 .animate-fade-in-scale {
   animation: fade-in-scale 0.3s ease-out;
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');

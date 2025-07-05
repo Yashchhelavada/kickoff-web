@@ -43,9 +43,25 @@ const Index = () => {
           
           {/* Hero Section with Football Background */}
           <section className="relative text-center py-16 animate-slide-in-up overflow-hidden">
-            {/* Football collage background */}
-            <div className="absolute inset-0 opacity-10 flex items-center justify-center">
-              <div className="text-[20rem] select-none">⚽</div>
+            {/* Enhanced Football collage background */}
+            <div className="absolute inset-0 opacity-5 flex items-center justify-center">
+              <div className="grid grid-cols-5 gap-8 transform rotate-12">
+                <div className="text-8xl select-none animate-bounce" style={{animationDelay: '0s'}}>⚽</div>
+                <div className="text-6xl select-none animate-bounce" style={{animationDelay: '0.5s'}}>🏆</div>
+                <div className="text-8xl select-none animate-bounce" style={{animationDelay: '1s'}}>⚽</div>
+                <div className="text-6xl select-none animate-bounce" style={{animationDelay: '1.5s'}}>🥅</div>
+                <div className="text-8xl select-none animate-bounce" style={{animationDelay: '2s'}}>⚽</div>
+                <div className="text-6xl select-none animate-bounce" style={{animationDelay: '0.3s'}}>🏟️</div>
+                <div className="text-8xl select-none animate-bounce" style={{animationDelay: '0.8s'}}>⚽</div>
+                <div className="text-6xl select-none animate-bounce" style={{animationDelay: '1.3s'}}>🏆</div>
+                <div className="text-8xl select-none animate-bounce" style={{animationDelay: '1.8s'}}>⚽</div>
+                <div className="text-6xl select-none animate-bounce" style={{animationDelay: '2.3s'}}>🥅</div>
+                <div className="text-8xl select-none animate-bounce" style={{animationDelay: '0.2s'}}>⚽</div>
+                <div className="text-6xl select-none animate-bounce" style={{animationDelay: '0.7s'}}>🏟️</div>
+                <div className="text-8xl select-none animate-bounce" style={{animationDelay: '1.2s'}}>⚽</div>
+                <div className="text-6xl select-none animate-bounce" style={{animationDelay: '1.7s'}}>🏆</div>
+                <div className="text-8xl select-none animate-bounce" style={{animationDelay: '2.2s'}}>⚽</div>
+              </div>
             </div>
             <div className="relative z-10">
               <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">
