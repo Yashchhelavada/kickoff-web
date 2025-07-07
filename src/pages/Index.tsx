@@ -21,13 +21,17 @@ const Index = () => {
     .slice(0, 6);
 
   const [topLeagues] = useState([
-    { name: 'Premier League', country: 'England', teams: 20, icon: '🏴󠁧󠁢󠁥󠁮󠁧󠁿' },
-    { name: 'La Liga', country: 'Spain', teams: 20, icon: '🇪🇸' },
-    { name: 'Serie A', country: 'Italy', teams: 20, icon: '🇮🇹' },
-    { name: 'Bundesliga', country: 'Germany', teams: 18, icon: '🇩🇪' },
-    { name: 'Ligue 1', country: 'France', teams: 20, icon: '🇫🇷' },
-    { name: 'Champions League', country: 'Europe', teams: 32, icon: '🏆' }
+    { name: 'Premier League', country: 'England', teams: 20, icon: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', url: 'https://www.premierleague.com' },
+    { name: 'La Liga', country: 'Spain', teams: 20, icon: '🇪🇸', url: 'https://www.laliga.com' },
+    { name: 'Serie A', country: 'Italy', teams: 20, icon: '🇮🇹', url: 'https://www.legaseriea.it' },
+    { name: 'Bundesliga', country: 'Germany', teams: 18, icon: '🇩🇪', url: 'https://www.bundesliga.com' },
+    { name: 'Ligue 1', country: 'France', teams: 20, icon: '🇫🇷', url: 'https://www.ligue1.com' },
+    { name: 'Champions League', country: 'Europe', teams: 32, icon: '🏆', url: 'https://www.uefa.com/uefachampionsleague' }
   ]);
+
+  const handleLeagueClick = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
 
   if (error) {
     console.error('Football data error:', error);
@@ -45,24 +49,30 @@ const Index = () => {
           
           {/* Hero Section with Football Background */}
           <section className="relative text-center py-16 animate-slide-in-up overflow-hidden">
-            {/* Enhanced Football collage background */}
-            <div className="absolute inset-0 opacity-5 flex items-center justify-center">
-              <div className="grid grid-cols-5 gap-8 transform rotate-12">
-                <div className="text-8xl select-none animate-bounce" style={{animationDelay: '0s'}}>⚽</div>
-                <div className="text-6xl select-none animate-bounce" style={{animationDelay: '0.5s'}}>🏆</div>
-                <div className="text-8xl select-none animate-bounce" style={{animationDelay: '1s'}}>⚽</div>
-                <div className="text-6xl select-none animate-bounce" style={{animationDelay: '1.5s'}}>🥅</div>
-                <div className="text-8xl select-none animate-bounce" style={{animationDelay: '2s'}}>⚽</div>
-                <div className="text-6xl select-none animate-bounce" style={{animationDelay: '0.3s'}}>🏟️</div>
-                <div className="text-8xl select-none animate-bounce" style={{animationDelay: '0.8s'}}>⚽</div>
-                <div className="text-6xl select-none animate-bounce" style={{animationDelay: '1.3s'}}>🏆</div>
-                <div className="text-8xl select-none animate-bounce" style={{animationDelay: '1.8s'}}>⚽</div>
-                <div className="text-6xl select-none animate-bounce" style={{animationDelay: '2.3s'}}>🥅</div>
-                <div className="text-8xl select-none animate-bounce" style={{animationDelay: '0.2s'}}>⚽</div>
-                <div className="text-6xl select-none animate-bounce" style={{animationDelay: '0.7s'}}>🏟️</div>
-                <div className="text-8xl select-none animate-bounce" style={{animationDelay: '1.2s'}}>⚽</div>
-                <div className="text-6xl select-none animate-bounce" style={{animationDelay: '1.7s'}}>🏆</div>
-                <div className="text-8xl select-none animate-bounce" style={{animationDelay: '2.2s'}}>⚽</div>
+            {/* Enhanced Football collage background - more visible */}
+            <div className="absolute inset-0 opacity-20 flex items-center justify-center">
+              <div className="grid grid-cols-7 gap-6 transform rotate-12">
+                <div className="text-9xl select-none animate-bounce" style={{animationDelay: '0s'}}>⚽</div>
+                <div className="text-7xl select-none animate-bounce" style={{animationDelay: '0.5s'}}>🏆</div>
+                <div className="text-9xl select-none animate-bounce" style={{animationDelay: '1s'}}>⚽</div>
+                <div className="text-7xl select-none animate-bounce" style={{animationDelay: '1.5s'}}>🥅</div>
+                <div className="text-9xl select-none animate-bounce" style={{animationDelay: '2s'}}>⚽</div>
+                <div className="text-7xl select-none animate-bounce" style={{animationDelay: '0.3s'}}>🏟️</div>
+                <div className="text-9xl select-none animate-bounce" style={{animationDelay: '0.8s'}}>⚽</div>
+                <div className="text-7xl select-none animate-bounce" style={{animationDelay: '1.3s'}}>🏆</div>
+                <div className="text-9xl select-none animate-bounce" style={{animationDelay: '1.8s'}}>⚽</div>
+                <div className="text-7xl select-none animate-bounce" style={{animationDelay: '2.3s'}}>🥅</div>
+                <div className="text-9xl select-none animate-bounce" style={{animationDelay: '0.2s'}}>⚽</div>
+                <div className="text-7xl select-none animate-bounce" style={{animationDelay: '0.7s'}}>🏟️</div>
+                <div className="text-9xl select-none animate-bounce" style={{animationDelay: '1.2s'}}>⚽</div>
+                <div className="text-7xl select-none animate-bounce" style={{animationDelay: '1.7s'}}>🏆</div>
+                <div className="text-9xl select-none animate-bounce" style={{animationDelay: '2.2s'}}>⚽</div>
+                <div className="text-7xl select-none animate-bounce" style={{animationDelay: '0.4s'}}>🥅</div>
+                <div className="text-9xl select-none animate-bounce" style={{animationDelay: '0.9s'}}>⚽</div>
+                <div className="text-7xl select-none animate-bounce" style={{animationDelay: '1.4s'}}>🏟️</div>
+                <div className="text-9xl select-none animate-bounce" style={{animationDelay: '1.9s'}}>⚽</div>
+                <div className="text-7xl select-none animate-bounce" style={{animationDelay: '2.4s'}}>🏆</div>
+                <div className="text-9xl select-none animate-bounce" style={{animationDelay: '0.1s'}}>⚽</div>
               </div>
             </div>
             <div className="relative z-10">
@@ -204,7 +214,11 @@ const Index = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {topLeagues.map((league, index) => (
-                <div key={index} className="glass-card p-6 rounded-xl hover:neon-glow transition-all duration-300 cursor-pointer group">
+                <div 
+                  key={index} 
+                  className="glass-card p-6 rounded-xl hover:neon-glow transition-all duration-300 cursor-pointer group"
+                  onClick={() => handleLeagueClick(league.url)}
+                >
                   <div className="flex items-center space-x-4 mb-4">
                     <div className="text-3xl">{league.icon}</div>
                     <div>

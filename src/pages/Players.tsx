@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import { User, Trophy, Target, Star } from 'lucide-react';
 
 const Players = () => {
+  // Updated with more realistic player data
   const topPlayers = [
     { 
       name: 'Lionel Messi', 
@@ -10,7 +11,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇦🇷', 
       age: 37,
-      photo: 'https://media.api-sports.io/football/players/154.png'
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/28003-1671435885.jpg?lm=1'
     },
     { 
       name: 'Cristiano Ronaldo', 
@@ -18,7 +19,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇵🇹', 
       age: 39,
-      photo: 'https://media.api-sports.io/football/players/874.png'
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/8198-1694609670.jpg?lm=1'
     },
     { 
       name: 'Kylian Mbappé', 
@@ -26,7 +27,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇫🇷', 
       age: 25,
-      photo: 'https://media.api-sports.io/football/players/1313.png'
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/342229-1669136701.jpg?lm=1'
     },
     { 
       name: 'Erling Haaland', 
@@ -34,7 +35,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇳🇴', 
       age: 24,
-      photo: 'https://media.api-sports.io/football/players/1100.png'
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/418560-1661177767.jpg?lm=1'
     },
     { 
       name: 'Vinicius Jr.', 
@@ -42,7 +43,7 @@ const Players = () => {
       position: 'Winger', 
       nationality: '🇧🇷', 
       age: 24,
-      photo: 'https://media.api-sports.io/football/players/1476.png'
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/371998-1661177642.jpg?lm=1'
     },
     { 
       name: 'Kevin De Bruyne', 
@@ -50,7 +51,7 @@ const Players = () => {
       position: 'Midfielder', 
       nationality: '🇧🇪', 
       age: 33,
-      photo: 'https://media.api-sports.io/football/players/629.png'
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/88755-1661177515.jpg?lm=1'
     },
     { 
       name: 'Mohamed Salah', 
@@ -58,7 +59,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇪🇬', 
       age: 32,
-      photo: 'https://media.api-sports.io/football/players/306.png'
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/148455-1661177400.jpg?lm=1'
     },
     { 
       name: 'Robert Lewandowski', 
@@ -66,7 +67,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇵🇱', 
       age: 35,
-      photo: 'https://media.api-sports.io/football/players/9985.png'
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/38253-1661177665.jpg?lm=1'
     }
   ];
 
@@ -93,7 +94,7 @@ const Players = () => {
               {topPlayers.map((player, index) => (
                 <div key={index} className="glass-card p-6 rounded-xl hover:neon-glow transition-all duration-300 cursor-pointer group">
                   <div className="text-center mb-4">
-                    <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden bg-muted/20">
+                    <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden bg-muted/20 border-2 border-primary/20">
                       <img 
                         src={player.photo} 
                         alt={player.name}
@@ -101,7 +102,8 @@ const Players = () => {
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.style.display = 'none';
-                          target.nextElementSibling?.classList.remove('hidden');
+                          const fallback = target.nextElementSibling as HTMLElement;
+                          if (fallback) fallback.classList.remove('hidden');
                         }}
                       />
                       <div className="hidden w-full h-full bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full flex items-center justify-center">

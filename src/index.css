@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,38 +9,38 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 98%; /* rgb(234, 239, 239) converted to HSL */
-    --foreground: 225 15% 24%; /* rgb(51, 52, 70) converted to HSL */
+    --background: 0 0% 93%; /* rgb(238, 238, 238) converted to HSL */
+    --foreground: 210 12% 16%; /* rgb(34, 40, 49) converted to HSL */
 
-    --card: 0 0% 95%;
-    --card-foreground: 225 15% 24%;
+    --card: 0 0% 90%;
+    --card-foreground: 210 12% 16%;
 
-    --popover: 0 0% 95%;
-    --popover-foreground: 225 15% 24%;
+    --popover: 0 0% 90%;
+    --popover-foreground: 210 12% 16%;
 
-    --primary: 189 28% 76%; /* rgb(184, 207, 206) converted to HSL */
-    --primary-foreground: 225 15% 24%;
+    --primary: 184 100% 35%; /* rgb(0, 173, 181) converted to HSL */
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 228 19% 50%; /* rgb(127, 140, 170) converted to HSL */
+    --secondary: 210 10% 23%; /* rgb(57, 62, 70) converted to HSL */
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 228 19% 50%;
-    --muted-foreground: 225 15% 24%;
+    --muted: 210 10% 23%;
+    --muted-foreground: 210 12% 16%;
 
-    --accent: 189 28% 76%;
-    --accent-foreground: 225 15% 24%;
+    --accent: 184 100% 35%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 228 19% 85%;
-    --input: 228 19% 90%;
-    --ring: 189 28% 76%;
+    --border: 210 10% 80%;
+    --input: 210 10% 85%;
+    --ring: 184 100% 35%;
 
     --radius: 0.75rem;
 
-    --neon-cyan: 189 28% 76%;
-    --neon-blue: 228 19% 50%;
+    --neon-cyan: 184 100% 35%;
+    --neon-blue: 210 10% 23%;
     --neon-purple: 270 100% 50%;
     --neon-green: 120 100% 50%;
   }
@@ -54,16 +55,16 @@ All colors MUST be HSL.
     --popover: 0 0% 5%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 189 28% 76%;
+    --primary: 184 100% 35%;
     --primary-foreground: 0 0% 0%;
 
-    --secondary: 228 19% 50%;
+    --secondary: 210 10% 23%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 228 19% 15%;
+    --muted: 210 10% 15%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 189 28% 76%;
+    --accent: 184 100% 35%;
     --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84.2% 60.2%;
@@ -71,7 +72,7 @@ All colors MUST be HSL.
 
     --border: 0 0% 15%;
     --input: 0 0% 10%;
-    --ring: 189 28% 76%;
+    --ring: 184 100% 35%;
   }
 }
 
@@ -103,9 +104,9 @@ All colors MUST be HSL.
   }
   
   .glass-card {
-    background: rgba(184, 207, 206, 0.1);
+    background: rgba(0, 173, 181, 0.1);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(184, 207, 206, 0.2);
+    border: 1px solid rgba(0, 173, 181, 0.2);
   }
 
   .dark .glass-card {
