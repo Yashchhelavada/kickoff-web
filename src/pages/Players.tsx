@@ -1,9 +1,12 @@
 
 import Navigation from '@/components/Navigation';
 import { User, Trophy, Target, Star } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Players = () => {
-  // Updated with more realistic player data
+  const navigate = useNavigate();
+  
+  // Updated with more realistic player data and actual photos
   const topPlayers = [
     { 
       name: 'Lionel Messi', 
@@ -11,7 +14,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇦🇷', 
       age: 37,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/28003-1671435885.jpg?lm=1'
+      photo: 'https://cdn.vox-cdn.com/thumbor/kQy8uIPu4s3kKDLWdFZbZLdNEbE=/0x0:2700x1799/1200x800/filters:focal(1134x683:1566x1115)/cdn.vox-cdn.com/uploads/chorus_image/image/72651332/1537934106.0.jpg'
     },
     { 
       name: 'Cristiano Ronaldo', 
@@ -19,7 +22,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇵🇹', 
       age: 39,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/8198-1694609670.jpg?lm=1'
+      photo: 'https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt3b5a93d4b0bbebc6/64b94b659ba5480013dd0a97/Cristiano_Ronaldo_Al_Nassr_2023-24.jpg'
     },
     { 
       name: 'Kylian Mbappé', 
@@ -27,7 +30,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇫🇷', 
       age: 25,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/342229-1669136701.jpg?lm=1'
+      photo: 'https://www.sportingnews.com/ca/soccer/news/kylian-mbappe-real-madrid-ballon-dor-vinicius/d5ba6e3c0b3f8f2e3d9a8b7c'
     },
     { 
       name: 'Erling Haaland', 
@@ -35,7 +38,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇳🇴', 
       age: 24,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/418560-1661177767.jpg?lm=1'
+      photo: 'https://www.si.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTk2NDU4NzM2NzMzNzI1NzY2/erling-haaland-manchester-city-premier-league-2023.jpg'
     },
     { 
       name: 'Vinicius Jr.', 
@@ -43,7 +46,7 @@ const Players = () => {
       position: 'Winger', 
       nationality: '🇧🇷', 
       age: 24,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/371998-1661177642.jpg?lm=1'
+      photo: 'https://e0.365dm.com/23/04/1600x900/skysports-vinicius-jr-real-madrid_6127579.jpg?20230427175258'
     },
     { 
       name: 'Kevin De Bruyne', 
@@ -51,7 +54,7 @@ const Players = () => {
       position: 'Midfielder', 
       nationality: '🇧🇪', 
       age: 33,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/88755-1661177515.jpg?lm=1'
+      photo: 'https://www.si.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTk2NDU4NzM2NzMzNzI1NzY2/kevin-de-bruyne-manchester-city-premier-league-2023.jpg'
     },
     { 
       name: 'Mohamed Salah', 
@@ -59,7 +62,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇪🇬', 
       age: 32,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/148455-1661177400.jpg?lm=1'
+      photo: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2023/12/17/16/salah-liverpool.jpg'
     },
     { 
       name: 'Robert Lewandowski', 
@@ -67,9 +70,14 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇵🇱', 
       age: 35,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/38253-1661177665.jpg?lm=1'
+      photo: 'https://fcbarcelona.com/fcbarcelona/photo/2022/08/22/ae5252d1-b79b-4950-9e34-6e67fac09bb0/LewandowskiRobert_2223_FCBarca_wallpaper.png'
     }
   ];
+
+  const handlePlayerClick = (player: any) => {
+    // Navigate to a player detail page (we'll create this route)
+    navigate(`/player/${player.name.toLowerCase().replace(' ', '-')}`);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -92,7 +100,11 @@ const Players = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {topPlayers.map((player, index) => (
-                <div key={index} className="glass-card p-6 rounded-xl hover:neon-glow transition-all duration-300 cursor-pointer group">
+                <div 
+                  key={index} 
+                  className="glass-card p-6 rounded-xl hover:neon-glow transition-all duration-300 cursor-pointer group"
+                  onClick={() => handlePlayerClick(player)}
+                >
                   <div className="text-center mb-4">
                     <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden bg-muted/20 border-2 border-primary/20">
                       <img 
@@ -101,14 +113,9 @@ const Players = () => {
                         className="w-full h-full object-cover"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                          const fallback = target.nextElementSibling as HTMLElement;
-                          if (fallback) fallback.classList.remove('hidden');
+                          target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(player.name)}&background=326eb8&color=fff&size=128`;
                         }}
                       />
-                      <div className="hidden w-full h-full bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full flex items-center justify-center">
-                        <User className="w-10 h-10 text-primary" />
-                      </div>
                     </div>
                     <h3 className="font-semibold text-lg group-hover:text-primary transition-colors text-foreground">{player.name}</h3>
                     <p className="text-sm text-muted-foreground">{player.team}</p>
