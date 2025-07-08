@@ -12,56 +12,56 @@ const Teams = () => {
       league: 'Premier League', 
       country: 'England', 
       founded: 1880, 
-      logo: 'https://seeklogo.com/images/M/manchester-city-logo-C3FCCF7A90-seeklogo.com.png'
+      logo: 'https://logos-world.net/wp-content/uploads/2020/06/Manchester-City-Logo.png'
     },
     { 
       name: 'Real Madrid', 
       league: 'La Liga', 
       country: 'Spain', 
       founded: 1902, 
-      logo: 'https://seeklogo.com/images/R/real-madrid-cf-logo-43B89F6DE5-seeklogo.com.png'
+      logo: 'https://logoeps.com/wp-content/uploads/2013/03/real-madrid-vector-logo.png'
     },
     { 
       name: 'Barcelona', 
       league: 'La Liga', 
       country: 'Spain', 
       founded: 1899, 
-      logo: 'https://seeklogo.com/images/B/barcelona-logo-EB43F17BDB-seeklogo.com.png'
+      logo: 'https://logoeps.com/wp-content/uploads/2013/03/barcelona-vector-logo.png'
     },
     { 
       name: 'Bayern Munich', 
       league: 'Bundesliga', 
       country: 'Germany', 
       founded: 1900, 
-      logo: 'https://seeklogo.com/images/B/bayern-munich-logo-6E3D9F6E8B-seeklogo.com.png'
+      logo: 'https://logoeps.com/wp-content/uploads/2013/03/bayern-munich-vector-logo.png'
     },
     { 
       name: 'Paris Saint-Germain', 
       league: 'Ligue 1', 
       country: 'France', 
       founded: 1970, 
-      logo: 'https://seeklogo.com/images/P/paris-saint-germain-logo-2AA473D3FB-seeklogo.com.png'
+      logo: 'https://logoeps.com/wp-content/uploads/2014/11/paris-saint-germain-vector-logo.png'
     },
     { 
       name: 'Liverpool', 
       league: 'Premier League', 
       country: 'England', 
       founded: 1892, 
-      logo: 'https://seeklogo.com/images/L/liverpool-fc-logo-62EC7DBC45-seeklogo.com.png'
+      logo: 'https://logoeps.com/wp-content/uploads/2013/03/liverpool-vector-logo.png'
     },
     { 
       name: 'Juventus', 
       league: 'Serie A', 
       country: 'Italy', 
       founded: 1897, 
-      logo: 'https://seeklogo.com/images/J/juventus-fc-logo-F2B32072BE-seeklogo.com.png'
+      logo: 'https://logoeps.com/wp-content/uploads/2013/03/juventus-vector-logo.png'
     },
     { 
       name: 'Arsenal', 
       league: 'Premier League', 
       country: 'England', 
       founded: 1886, 
-      logo: 'https://seeklogo.com/images/A/arsenal-fc-logo-EF2EF38E74-seeklogo.com.png'
+      logo: 'https://logoeps.com/wp-content/uploads/2013/03/arsenal-vector-logo.png'
     }
   ];
 
@@ -89,37 +89,37 @@ const Teams = () => {
               <Users className="w-6 h-6 text-primary" />
               <h2 className="text-2xl font-bold text-foreground">Top Teams</h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
               {topTeams.map((team, index) => (
                 <div 
                   key={index} 
-                  className="glass-card p-6 rounded-xl hover:neon-glow transition-all duration-300 cursor-pointer group"
+                  className="glass-card p-4 md:p-6 rounded-xl hover:neon-glow transition-all duration-300 cursor-pointer group"
                   onClick={() => handleTeamClick(team)}
                 >
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 rounded-full overflow-hidden bg-white/10 flex items-center justify-center">
+                  <div className="flex items-center space-x-3 md:space-x-4 mb-3 md:mb-4">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden bg-white/10 flex items-center justify-center flex-shrink-0">
                       <img 
                         src={team.logo} 
                         alt={`${team.name} logo`}
-                        className="w-8 h-8 object-contain"
+                        className="w-6 h-6 md:w-8 md:h-8 object-contain"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(team.name)}&background=326eb8&color=fff&size=64`;
                         }}
                       />
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-lg group-hover:text-primary transition-colors text-foreground">{team.name}</h3>
-                      <p className="text-sm text-muted-foreground">{team.league}</p>
+                    <div className="min-w-0 flex-1">
+                      <h3 className="font-semibold text-sm md:text-lg group-hover:text-primary transition-colors text-foreground truncate">{team.name}</h3>
+                      <p className="text-xs md:text-sm text-muted-foreground">{team.league}</p>
                     </div>
                   </div>
-                  <div className="space-y-2 text-sm text-muted-foreground">
+                  <div className="space-y-1 md:space-y-2 text-xs md:text-sm text-muted-foreground">
                     <div className="flex items-center space-x-1">
-                      <Target className="w-4 h-4" />
+                      <Target className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
                       <span>{team.country}</span>
                     </div>
                     <div className="flex items-center space-x-1">
-                      <Trophy className="w-4 h-4" />
+                      <Trophy className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
                       <span>Founded {team.founded}</span>
                     </div>
                   </div>

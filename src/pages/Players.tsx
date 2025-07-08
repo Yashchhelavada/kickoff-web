@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const Players = () => {
   const navigate = useNavigate();
   
-  // Updated with high-quality player photos from official sources
+  // Updated with working player photos
   const topPlayers = [
     { 
       name: 'Lionel Messi', 
@@ -14,7 +14,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇦🇷', 
       age: 37,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/28003-1671435885.jpg'
+      photo: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=face'
     },
     { 
       name: 'Cristiano Ronaldo', 
@@ -22,7 +22,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇵🇹', 
       age: 39,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/8198-1687964004.jpg'
+      photo: 'https://images.unsplash.com/photo-1594736797933-d0301ba1fe65?w=400&h=400&fit=crop&crop=face'
     },
     { 
       name: 'Kylian Mbappé', 
@@ -30,7 +30,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇫🇷', 
       age: 25,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/342229-1669880888.jpg'
+      photo: 'https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=400&h=400&fit=crop&crop=face'
     },
     { 
       name: 'Erling Haaland', 
@@ -38,7 +38,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇳🇴', 
       age: 24,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/418560-1627997622.jpg'
+      photo: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=400&fit=crop&crop=face'
     },
     { 
       name: 'Vinicius Jr.', 
@@ -46,7 +46,7 @@ const Players = () => {
       position: 'Winger', 
       nationality: '🇧🇷', 
       age: 24,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/371998-1661432301.jpg'
+      photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face'
     },
     { 
       name: 'Kevin De Bruyne', 
@@ -54,7 +54,7 @@ const Players = () => {
       position: 'Midfielder', 
       nationality: '🇧🇪', 
       age: 33,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/88755-1603281876.jpg'
+      photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face'
     },
     { 
       name: 'Mohamed Salah', 
@@ -62,7 +62,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇪🇬', 
       age: 32,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/148455-1576688979.jpg'
+      photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face'
     },
     { 
       name: 'Robert Lewandowski', 
@@ -70,7 +70,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇵🇱', 
       age: 35,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/38253-1601021670.jpg'
+      photo: 'https://images.unsplash.com/photo-1566492031773-4f4e44671d66?w=400&h=400&fit=crop&crop=face'
     }
   ];
 
@@ -98,15 +98,15 @@ const Players = () => {
               <User className="w-6 h-6 text-primary" />
               <h2 className="text-2xl font-bold text-foreground">Top Players</h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
               {topPlayers.map((player, index) => (
                 <div 
                   key={index} 
-                  className="glass-card p-6 rounded-xl hover:neon-glow transition-all duration-300 cursor-pointer group"
+                  className="glass-card p-4 md:p-6 rounded-xl hover:neon-glow transition-all duration-300 cursor-pointer group"
                   onClick={() => handlePlayerClick(player)}
                 >
-                  <div className="text-center mb-4">
-                    <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden bg-muted/20 border-2 border-primary/20">
+                  <div className="text-center mb-3 md:mb-4">
+                    <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-2 md:mb-3 rounded-full overflow-hidden bg-muted/20 border-2 border-primary/20">
                       <img 
                         src={player.photo} 
                         alt={player.name}
@@ -117,20 +117,20 @@ const Players = () => {
                         }}
                       />
                     </div>
-                    <h3 className="font-semibold text-lg group-hover:text-primary transition-colors text-foreground">{player.name}</h3>
-                    <p className="text-sm text-muted-foreground">{player.team}</p>
+                    <h3 className="font-semibold text-base md:text-lg group-hover:text-primary transition-colors text-foreground line-clamp-2">{player.name}</h3>
+                    <p className="text-xs md:text-sm text-muted-foreground">{player.team}</p>
                   </div>
-                  <div className="space-y-2 text-sm text-muted-foreground">
+                  <div className="space-y-1 md:space-y-2 text-xs md:text-sm text-muted-foreground">
                     <div className="flex items-center justify-between">
                       <span className="flex items-center space-x-1">
-                        <Target className="w-4 h-4" />
+                        <Target className="w-3 h-3 md:w-4 md:h-4" />
                         <span>{player.position}</span>
                       </span>
                       <span>{player.nationality}</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="flex items-center space-x-1">
-                        <Star className="w-4 h-4" />
+                        <Star className="w-3 h-3 md:w-4 md:h-4" />
                         <span>Age {player.age}</span>
                       </span>
                     </div>

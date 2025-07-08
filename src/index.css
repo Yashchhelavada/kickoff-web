@@ -20,7 +20,7 @@ All colors MUST be HSL.
     --primary: 204 73% 46%; /* rgb(50, 130, 184) converted to HSL */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 205 77% 26%; /* rgb(15, 76, 117) converted to HSL */
+    --secondary: 220 91% 15%; /* Dark blue for footer */
     --secondary-foreground: 0 0% 98%;
 
     --muted: 205 77% 26%;
@@ -127,6 +127,13 @@ All colors MUST be HSL.
   .gradient-border > * {
     background: hsl(var(--background));
     border-radius: calc(var(--radius) - 1px);
+  }
+  
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
 

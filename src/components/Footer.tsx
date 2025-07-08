@@ -3,12 +3,12 @@ import { Trophy, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube } fr
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-primary-foreground border-t border-border mt-20">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="bg-secondary text-secondary-foreground border-t border-border mt-20">
+      <div className="container mx-auto px-4 py-8 md:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           
           {/* Brand Section */}
-          <div className="space-y-4">
+          <div className="space-y-3 md:space-y-4 sm:col-span-2 lg:col-span-1">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-gradient-to-r from-green-400 to-emerald-500 rounded-lg flex items-center justify-center">
                 <Trophy className="w-5 h-5 text-white" />
