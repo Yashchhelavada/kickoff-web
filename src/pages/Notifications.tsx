@@ -43,14 +43,14 @@ const Notifications = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-background">
       <Navigation />
       
       <main className="pt-20 md:pt-20 pb-20 md:pb-8">
         <div className="container mx-auto px-4 space-y-8">
           
           <section className="text-center py-8">
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent mb-4">
               Notifications
             </h1>
             <p className="text-xl text-muted-foreground">Stay updated with the latest football news</p>
@@ -59,7 +59,7 @@ const Notifications = () => {
           <section>
             <div className="flex items-center space-x-3 mb-6">
               <Bell className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-bold">Recent Notifications</h2>
+              <h2 className="text-2xl font-bold text-foreground">Recent Notifications</h2>
             </div>
             <div className="space-y-4">
               {notifications.map((notification) => (

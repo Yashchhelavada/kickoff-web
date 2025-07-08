@@ -8,14 +8,14 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 203 33% 86%; /* rgb(187, 225, 250) converted to HSL */
-    --foreground: 200 24% 14%; /* rgb(27, 38, 44) converted to HSL */
+    --background: 0 0% 100%; /* White background */
+    --foreground: 0 0% 0%; /* Black text */
 
-    --card: 203 33% 90%;
-    --card-foreground: 200 24% 14%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 0%;
 
-    --popover: 203 33% 90%;
-    --popover-foreground: 200 24% 14%;
+    --popover: 0 0% 98%;
+    --popover-foreground: 0 0% 0%;
 
     --primary: 204 73% 46%; /* rgb(50, 130, 184) converted to HSL */
     --primary-foreground: 0 0% 98%;
@@ -83,7 +83,7 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground font-inter;
     background: 
-      linear-gradient(rgba(187, 225, 250, 0.8), rgba(187, 225, 250, 0.8)),
+      linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
       url('https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
     min-height: 100vh;
     transition: all 0.3s ease-in-out;

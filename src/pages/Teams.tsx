@@ -12,56 +12,56 @@ const Teams = () => {
       league: 'Premier League', 
       country: 'England', 
       founded: 1880, 
-      logo: 'https://logos-world.net/wp-content/uploads/2020/06/Manchester-City-Logo.png'
+      logo: 'https://seeklogo.com/images/M/manchester-city-logo-C3FCCF7A90-seeklogo.com.png'
     },
     { 
       name: 'Real Madrid', 
       league: 'La Liga', 
       country: 'Spain', 
       founded: 1902, 
-      logo: 'https://logos-world.net/wp-content/uploads/2020/06/Real-Madrid-Logo.png'
+      logo: 'https://seeklogo.com/images/R/real-madrid-cf-logo-43B89F6DE5-seeklogo.com.png'
     },
     { 
       name: 'Barcelona', 
       league: 'La Liga', 
       country: 'Spain', 
       founded: 1899, 
-      logo: 'https://logos-world.net/wp-content/uploads/2020/06/Barcelona-Logo.png'
+      logo: 'https://seeklogo.com/images/B/barcelona-logo-EB43F17BDB-seeklogo.com.png'
     },
     { 
       name: 'Bayern Munich', 
       league: 'Bundesliga', 
       country: 'Germany', 
       founded: 1900, 
-      logo: 'https://logos-world.net/wp-content/uploads/2020/06/Bayern-Munich-Logo.png'
+      logo: 'https://seeklogo.com/images/B/bayern-munich-logo-6E3D9F6E8B-seeklogo.com.png'
     },
     { 
       name: 'Paris Saint-Germain', 
       league: 'Ligue 1', 
       country: 'France', 
       founded: 1970, 
-      logo: 'https://logos-world.net/wp-content/uploads/2020/06/Paris-Saint-Germain-PSG-Logo.png'
+      logo: 'https://seeklogo.com/images/P/paris-saint-germain-logo-2AA473D3FB-seeklogo.com.png'
     },
     { 
       name: 'Liverpool', 
       league: 'Premier League', 
       country: 'England', 
       founded: 1892, 
-      logo: 'https://logos-world.net/wp-content/uploads/2020/06/Liverpool-Logo.png'
+      logo: 'https://seeklogo.com/images/L/liverpool-fc-logo-62EC7DBC45-seeklogo.com.png'
     },
     { 
       name: 'Juventus', 
       league: 'Serie A', 
       country: 'Italy', 
       founded: 1897, 
-      logo: 'https://logos-world.net/wp-content/uploads/2020/06/Juventus-Logo.png'
+      logo: 'https://seeklogo.com/images/J/juventus-fc-logo-F2B32072BE-seeklogo.com.png'
     },
     { 
       name: 'Arsenal', 
       league: 'Premier League', 
       country: 'England', 
       founded: 1886, 
-      logo: 'https://logos-world.net/wp-content/uploads/2020/06/Arsenal-Logo.png'
+      logo: 'https://seeklogo.com/images/A/arsenal-fc-logo-EF2EF38E74-seeklogo.com.png'
     }
   ];
 
