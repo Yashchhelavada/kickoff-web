@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const Players = () => {
   const navigate = useNavigate();
   
-  // Updated with original player photos
+  // Updated with high-quality player photos
   const topPlayers = [
     { 
       name: 'Lionel Messi', 
@@ -14,7 +14,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇦🇷', 
       age: 37,
-      photo: 'https://assets.goal.com/images/v3/blt7bf19b9e7e7a999a/GOAL%20-%20Blank%20WEB%20-%20Facebook%20-%202024-01-19T121710.791.jpg?auto=webp&format=jpg&quality=60&width=1200&height=800'
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/28003-1671435885.jpg?lm=1'
     },
     { 
       name: 'Cristiano Ronaldo', 
@@ -22,7 +22,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇵🇹', 
       age: 39,
-      photo: 'https://assets.goal.com/images/v3/blt7b8c6f9f4a7e2e7b/GOAL%20-%20Blank%20WEB%20-%20Facebook%20-%202024-01-19T121710.791.jpg?auto=webp&format=jpg&quality=60&width=1200&height=800'
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/8198-1694609670.jpg?lm=1'
     },
     { 
       name: 'Kylian Mbappé', 
@@ -30,7 +30,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇫🇷', 
       age: 25,
-      photo: 'https://www.realmadrid.com/img/vertical_380px/mbappe_380x501_20240716034152.jpg'
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/342229-1679482504.jpg?lm=1'
     },
     { 
       name: 'Erling Haaland', 
@@ -38,7 +38,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇳🇴', 
       age: 24,
-      photo: 'https://www.mancity.com/meta/media/xshcpfxo/erling-haaland.png'
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/418560-1664459277.jpg?lm=1'
     },
     { 
       name: 'Vinicius Jr.', 
@@ -46,7 +46,7 @@ const Players = () => {
       position: 'Winger', 
       nationality: '🇧🇷', 
       age: 24,
-      photo: 'https://www.realmadrid.com/img/vertical_380px/vinicius_380x501_20240716030626.jpg'
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/371998-1679482548.jpg?lm=1'
     },
     { 
       name: 'Kevin De Bruyne', 
@@ -54,7 +54,7 @@ const Players = () => {
       position: 'Midfielder', 
       nationality: '🇧🇪', 
       age: 33,
-      photo: 'https://www.mancity.com/meta/media/eq3jqkpb/kevin-de-bruyne.png'
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/88755-1664459370.jpg?lm=1'
     },
     { 
       name: 'Mohamed Salah', 
@@ -62,7 +62,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇪🇬', 
       age: 32,
-      photo: 'https://assets.liverpoolfc.com/Transform/ffb8b2c3-d8e4-47cf-8e1e-26e4d7f9ec16/SalahM_Profile2324'
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/148455-1671636622.jpg?lm=1'
     },
     { 
       name: 'Robert Lewandowski', 
@@ -70,7 +70,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇵🇱', 
       age: 35,
-      photo: 'https://www.fcbarcelona.com/photo-resources/2023/08/31/da34bfc6-3c2d-4f1c-9f12-761e36cbc8b0/LEWANDOWSKI.png'
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/38253-1661241758.jpg?lm=1'
     }
   ];
 
