@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,38 +9,38 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%; /* White background */
-    --foreground: 0 0% 0%; /* Black text */
+    --background: 36 65% 95%; /* rgb(234, 200, 166) converted to HSL - light cream */
+    --foreground: 222 47% 11%; /* Dark text for contrast */
 
-    --card: 0 0% 98%;
-    --card-foreground: 0 0% 0%;
+    --card: 46 88% 93%; /* rgb(251, 245, 222) converted to HSL - light yellow */
+    --card-foreground: 222 47% 11%;
 
-    --popover: 0 0% 98%;
-    --popover-foreground: 0 0% 0%;
+    --popover: 46 88% 93%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 204 73% 46%; /* rgb(50, 130, 184) converted to HSL */
+    --primary: 212 50% 48%; /* rgb(61, 116, 182) converted to HSL - blue */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 220 91% 15%; /* Dark blue for footer */
+    --secondary: 8 73% 50%; /* rgb(220, 60, 34) converted to HSL - red */
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 205 77% 26%;
-    --muted-foreground: 200 24% 14%;
+    --muted: 36 65% 85%;
+    --muted-foreground: 222 47% 25%;
 
-    --accent: 204 73% 46%;
+    --accent: 212 50% 48%;
     --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 8 73% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 204 35% 80%;
-    --input: 204 35% 85%;
-    --ring: 204 73% 46%;
+    --border: 36 65% 80%;
+    --input: 36 65% 85%;
+    --ring: 212 50% 48%;
 
     --radius: 0.75rem;
 
-    --neon-cyan: 204 73% 46%;
-    --neon-blue: 205 77% 26%;
+    --neon-cyan: 212 50% 48%;
+    --neon-blue: 212 50% 35%;
     --neon-purple: 270 100% 50%;
     --neon-green: 120 100% 50%;
   }
@@ -54,24 +55,24 @@ All colors MUST be HSL.
     --popover: 0 0% 5%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 204 73% 46%;
+    --primary: 212 50% 48%;
     --primary-foreground: 0 0% 0%;
 
-    --secondary: 205 77% 26%;
+    --secondary: 8 73% 50%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 205 77% 26%;
+    --muted: 212 50% 35%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 204 73% 46%;
+    --accent: 212 50% 48%;
     --accent-foreground: 0 0% 0%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 8 73% 50%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 0 0% 15%;
     --input: 0 0% 10%;
-    --ring: 204 73% 46%;
+    --ring: 212 50% 48%;
   }
 }
 
@@ -83,7 +84,7 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground font-inter;
     background: 
-      linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+      linear-gradient(rgba(251, 245, 222, 0.95), rgba(234, 200, 166, 0.95)),
       url('https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
     min-height: 100vh;
     transition: all 0.3s ease-in-out;
@@ -107,9 +108,9 @@ All colors MUST be HSL.
   }
   
   .glass-card {
-    background: rgba(50, 130, 184, 0.1);
+    background: rgba(251, 245, 222, 0.8);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(50, 130, 184, 0.2);
+    border: 1px solid rgba(61, 116, 182, 0.2);
   }
 
   .dark .glass-card {

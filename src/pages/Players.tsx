@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const Players = () => {
   const navigate = useNavigate();
   
-  // Updated with working player photos
+  // Updated with original player photos
   const topPlayers = [
     { 
       name: 'Lionel Messi', 
@@ -14,7 +14,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇦🇷', 
       age: 37,
-      photo: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=face'
+      photo: 'https://assets.goal.com/images/v3/blt7bf19b9e7e7a999a/GOAL%20-%20Blank%20WEB%20-%20Facebook%20-%202024-01-19T121710.791.jpg?auto=webp&format=jpg&quality=60&width=1200&height=800'
     },
     { 
       name: 'Cristiano Ronaldo', 
@@ -22,7 +22,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇵🇹', 
       age: 39,
-      photo: 'https://images.unsplash.com/photo-1594736797933-d0301ba1fe65?w=400&h=400&fit=crop&crop=face'
+      photo: 'https://assets.goal.com/images/v3/blt7b8c6f9f4a7e2e7b/GOAL%20-%20Blank%20WEB%20-%20Facebook%20-%202024-01-19T121710.791.jpg?auto=webp&format=jpg&quality=60&width=1200&height=800'
     },
     { 
       name: 'Kylian Mbappé', 
@@ -30,7 +30,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇫🇷', 
       age: 25,
-      photo: 'https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=400&h=400&fit=crop&crop=face'
+      photo: 'https://www.realmadrid.com/img/vertical_380px/mbappe_380x501_20240716034152.jpg'
     },
     { 
       name: 'Erling Haaland', 
@@ -38,7 +38,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇳🇴', 
       age: 24,
-      photo: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=400&fit=crop&crop=face'
+      photo: 'https://www.mancity.com/meta/media/xshcpfxo/erling-haaland.png'
     },
     { 
       name: 'Vinicius Jr.', 
@@ -46,7 +46,7 @@ const Players = () => {
       position: 'Winger', 
       nationality: '🇧🇷', 
       age: 24,
-      photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face'
+      photo: 'https://www.realmadrid.com/img/vertical_380px/vinicius_380x501_20240716030626.jpg'
     },
     { 
       name: 'Kevin De Bruyne', 
@@ -54,7 +54,7 @@ const Players = () => {
       position: 'Midfielder', 
       nationality: '🇧🇪', 
       age: 33,
-      photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face'
+      photo: 'https://www.mancity.com/meta/media/eq3jqkpb/kevin-de-bruyne.png'
     },
     { 
       name: 'Mohamed Salah', 
@@ -62,7 +62,7 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇪🇬', 
       age: 32,
-      photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face'
+      photo: 'https://assets.liverpoolfc.com/Transform/ffb8b2c3-d8e4-47cf-8e1e-26e4d7f9ec16/SalahM_Profile2324'
     },
     { 
       name: 'Robert Lewandowski', 
@@ -70,12 +70,11 @@ const Players = () => {
       position: 'Forward', 
       nationality: '🇵🇱', 
       age: 35,
-      photo: 'https://images.unsplash.com/photo-1566492031773-4f4e44671d66?w=400&h=400&fit=crop&crop=face'
+      photo: 'https://www.fcbarcelona.com/photo-resources/2023/08/31/da34bfc6-3c2d-4f1c-9f12-761e36cbc8b0/LEWANDOWSKI.png'
     }
   ];
 
   const handlePlayerClick = (player: any) => {
-    // Navigate to a player detail page (we'll create this route)
     navigate(`/player/${player.name.toLowerCase().replace(' ', '-')}`);
   };
 
@@ -102,36 +101,36 @@ const Players = () => {
               {topPlayers.map((player, index) => (
                 <div 
                   key={index} 
-                  className="glass-card p-4 md:p-6 rounded-xl hover:neon-glow transition-all duration-300 cursor-pointer group"
+                  className="glass-card p-4 md:p-6 rounded-xl hover:neon-glow transition-all duration-300 cursor-pointer group border-2 border-primary/20"
                   onClick={() => handlePlayerClick(player)}
                 >
                   <div className="text-center mb-3 md:mb-4">
-                    <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-2 md:mb-3 rounded-full overflow-hidden bg-muted/20 border-2 border-primary/20">
+                    <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-2 md:mb-3 rounded-full overflow-hidden bg-white/90 border-3 border-primary/30 shadow-lg">
                       <img 
                         src={player.photo} 
                         alt={player.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover object-top"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
-                          target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(player.name)}&background=326eb8&color=fff&size=128`;
+                          target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(player.name)}&background=3d74b6&color=fff&size=128`;
                         }}
                       />
                     </div>
-                    <h3 className="font-semibold text-base md:text-lg group-hover:text-primary transition-colors text-foreground line-clamp-2">{player.name}</h3>
-                    <p className="text-xs md:text-sm text-muted-foreground">{player.team}</p>
+                    <h3 className="font-bold text-base md:text-lg group-hover:text-primary transition-colors text-foreground line-clamp-2">{player.name}</h3>
+                    <p className="text-xs md:text-sm text-muted-foreground font-medium">{player.team}</p>
                   </div>
                   <div className="space-y-1 md:space-y-2 text-xs md:text-sm text-muted-foreground">
                     <div className="flex items-center justify-between">
                       <span className="flex items-center space-x-1">
-                        <Target className="w-3 h-3 md:w-4 md:h-4" />
-                        <span>{player.position}</span>
+                        <Target className="w-3 h-3 md:w-4 md:h-4 text-primary" />
+                        <span className="font-medium">{player.position}</span>
                       </span>
-                      <span>{player.nationality}</span>
+                      <span className="text-lg">{player.nationality}</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="flex items-center space-x-1">
-                        <Star className="w-3 h-3 md:w-4 md:h-4" />
-                        <span>Age {player.age}</span>
+                        <Star className="w-3 h-3 md:w-4 md:h-4 text-secondary" />
+                        <span className="font-medium">Age {player.age}</span>
                       </span>
                     </div>
                   </div>

@@ -65,29 +65,33 @@ const Notifications = () => {
               {notifications.map((notification) => (
                 <div 
                   key={notification.id} 
-                  className={`glass-card p-6 rounded-xl hover:bg-muted/5 transition-all duration-300 cursor-pointer ${
-                    !notification.read ? 'border-l-4 border-primary' : ''
+                  className={`glass-card p-6 rounded-xl hover:bg-primary/5 transition-all duration-300 cursor-pointer border-2 border-primary/20 ${
+                    !notification.read ? 'border-l-4 border-l-secondary' : ''
                   }`}
                 >
                   <div className="flex items-start space-x-4">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                      notification.type === 'goal' ? 'bg-green-500/20' :
-                      notification.type === 'match' ? 'bg-blue-500/20' :
-                      'bg-purple-500/20'
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center border-2 ${
+                      notification.type === 'goal' ? 'bg-green-500/20 border-green-500/30' :
+                      notification.type === 'match' ? 'bg-primary/20 border-primary/30' :
+                      'bg-secondary/20 border-secondary/30'
                     }`}>
-                      <notification.icon className="w-6 h-6" />
+                      <notification.icon className={`w-6 h-6 ${
+                        notification.type === 'goal' ? 'text-green-600' :
+                        notification.type === 'match' ? 'text-primary' :
+                        'text-secondary'
+                      }`} />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center space-x-2 mb-1">
-                        <h3 className="font-semibold text-lg">{notification.title}</h3>
+                        <h3 className="font-bold text-lg text-foreground">{notification.title}</h3>
                         {!notification.read && (
-                          <div className="w-2 h-2 bg-primary rounded-full" />
+                          <div className="w-2 h-2 bg-secondary rounded-full" />
                         )}
                       </div>
-                      <p className="text-muted-foreground mb-2">{notification.message}</p>
+                      <p className="text-muted-foreground mb-2 font-medium">{notification.message}</p>
                       <div className="flex items-center space-x-1 text-sm text-muted-foreground">
-                        <Clock className="w-4 h-4" />
-                        <span>{notification.time}</span>
+                        <Clock className="w-4 h-4 text-primary" />
+                        <span className="font-medium">{notification.time}</span>
                       </div>
                     </div>
                   </div>
