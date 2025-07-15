@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 const Players = () => {
   const navigate = useNavigate();
   
-  // Updated with high-quality player photos
   const topPlayers = [
     { 
       name: 'Lionel Messi', 
@@ -24,52 +23,52 @@ const Players = () => {
       photo: 'https://tmssl.akamaized.net/images/foto/galerie/cristiano-ronaldo-portugal-wm-2022-1670235324-95847.jpg?lm=1670235398'
     },
     { 
-      name: 'Kylian Mbappé', 
-      team: 'Real Madrid', 
+      name: 'Xavi Hernandez', 
+      team: 'Barcelona', 
+      position: 'Midfielder', 
+      nationality: '🇪🇸', 
+      age: 44,
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/8022-1694610602.jpg?lm=1694610602'
+    },
+    { 
+      name: 'Iniesta', 
+      team: 'Vissel Kobe', 
+      position: 'Midfielder', 
+      nationality: '🇪🇸', 
+      age: 40,
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/7600-1694427853.jpg?lm=1694427853'
+    },
+    { 
+      name: 'Thierry Henry', 
+      team: 'Arsenal', 
       position: 'Forward', 
       nationality: '🇫🇷', 
-      age: 25,
-      photo: 'https://tmssl.akamaized.net/images/foto/galerie/kylian-mbappe-real-madrid-2024-1720523169-139085.jpg?lm=1720523194'
+      age: 47,
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/3207-1611929715.jpg?lm=1611929715'
     },
     { 
-      name: 'Erling Haaland', 
-      team: 'Manchester City', 
-      position: 'Forward', 
-      nationality: '🇳🇴', 
-      age: 24,
-      photo: 'https://tmssl.akamaized.net/images/foto/galerie/erling-haaland-manchester-city-2024-1697196169-116230.jpg?lm=1697196194'
-    },
-    { 
-      name: 'Vinicius Jr.', 
-      team: 'Real Madrid', 
-      position: 'Winger', 
-      nationality: '🇧🇷', 
-      age: 24,
-      photo: 'https://tmssl.akamaized.net/images/foto/galerie/vinicius-junior-real-madrid-2024-1706876169-126789.jpg?lm=1706876194'
-    },
-    { 
-      name: 'Kevin De Bruyne', 
-      team: 'Manchester City', 
-      position: 'Midfielder', 
-      nationality: '🇧🇪', 
-      age: 33,
-      photo: 'https://tmssl.akamaized.net/images/foto/galerie/kevin-de-bruyne-manchester-city-2024-1697196169-116232.jpg?lm=1697196194'
-    },
-    { 
-      name: 'Mohamed Salah', 
-      team: 'Liverpool', 
-      position: 'Forward', 
-      nationality: '🇪🇬', 
-      age: 32,
-      photo: 'https://tmssl.akamaized.net/images/foto/galerie/mohamed-salah-liverpool-2024-1697196169-116234.jpg?lm=1697196194'
-    },
-    { 
-      name: 'Robert Lewandowski', 
+      name: 'Ronaldinho', 
       team: 'Barcelona', 
       position: 'Forward', 
-      nationality: '🇵🇱', 
-      age: 35,
-      photo: 'https://tmssl.akamaized.net/images/foto/galerie/robert-lewandowski-barcelona-2024-1697196169-116236.jpg?lm=1697196194'
+      nationality: '🇧🇷', 
+      age: 44,
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/3373-1611929679.jpg?lm=1611929679'
+    },
+    { 
+      name: 'Zinedine Zidane', 
+      team: 'Real Madrid', 
+      position: 'Midfielder', 
+      nationality: '🇫🇷', 
+      age: 52,
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/3111-1639050949.jpg?lm=1639050949'
+    },
+    { 
+      name: 'Kaka', 
+      team: 'AC Milan', 
+      position: 'Midfielder', 
+      nationality: '🇧🇷', 
+      age: 42,
+      photo: 'https://img.a.transfermarkt.technology/portrait/big/3368-1611929668.jpg?lm=1611929668'
     }
   ];
 

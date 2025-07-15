@@ -7,18 +7,18 @@ const Teams = () => {
   
   const topTeams = [
     { 
-      name: 'Manchester City', 
+      name: 'Manchester United', 
       league: 'Premier League', 
       country: 'England', 
-      founded: 1880, 
-      logo: 'https://assets.manutd.com/AssetPicker/images/0/0/10/126/687707/Logos-and-Badges_Anger_Man-City1508756140535.png'
+      founded: 1878, 
+      logo: 'https://logos-world.net/wp-content/uploads/2020/06/Manchester-United-Logo.png'
     },
     { 
       name: 'Real Madrid', 
       league: 'La Liga', 
       country: 'Spain', 
       founded: 1902, 
-      logo: 'https://www.thesportsdb.com/images/media/team/badge/yqrxrs1420568320.png'
+      logo: 'https://logos-world.net/wp-content/uploads/2020/06/Real-Madrid-Logo.png'
     },
     { 
       name: 'Barcelona', 
@@ -32,14 +32,14 @@ const Teams = () => {
       league: 'Bundesliga', 
       country: 'Germany', 
       founded: 1900, 
-      logo: 'https://www.thesportsdb.com/images/media/team/badge/xtwvxy1448813893.png'
+      logo: 'https://logos-world.net/wp-content/uploads/2020/06/Bayern-Munich-Logo.png'
     },
     { 
-      name: 'Paris Saint-Germain', 
-      league: 'Ligue 1', 
-      country: 'France', 
-      founded: 1970, 
-      logo: 'https://www.thesportsdb.com/images/media/team/badge/txrxry1448813507.png'
+      name: 'AC Milan', 
+      league: 'Serie A', 
+      country: 'Italy', 
+      founded: 1899, 
+      logo: 'https://logos-world.net/wp-content/uploads/2020/06/AC-Milan-Logo.png'
     },
     { 
       name: 'Liverpool', 
@@ -53,14 +53,14 @@ const Teams = () => {
       league: 'Serie A', 
       country: 'Italy', 
       founded: 1897, 
-      logo: 'https://www.thesportsdb.com/images/media/team/badge/vqvvty1448813610.png'
+      logo: 'https://logos-world.net/wp-content/uploads/2020/06/Juventus-Logo.png'
     },
     { 
       name: 'Arsenal', 
       league: 'Premier League', 
       country: 'England', 
       founded: 1886, 
-      logo: 'https://www.thesportsdb.com/images/media/team/badge/vrtrtp1448813175.png'
+      logo: 'https://logos-world.net/wp-content/uploads/2020/06/Arsenal-Logo.png'
     }
   ];
 
