@@ -1,109 +1,172 @@
 
+import { useParams, useNavigate } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
-import { ArrowLeft, User, Trophy, Target, Star } from 'lucide-react';
-import { useNavigate, useParams } from 'react-router-dom';
+import Footer from '@/components/Footer';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { ArrowLeft, User, Trophy, Calendar, MapPin, TrendingUp, Star, Target } from 'lucide-react';
 
 const PlayerDetail = () => {
-  const navigate = useNavigate();
   const { playerId } = useParams();
+  const navigate = useNavigate();
 
-  // Mock player data - in a real app, you'd fetch this based on the playerId
-  const player = {
-    name: playerId?.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase()) || 'Player',
-    team: 'Football Club',
-    position: 'Forward',
-    nationality: '🌍',
-    age: 25,
-    photo: 'https://ui-avatars.com/api/?name=Player&background=326eb8&color=fff&size=256',
-    stats: {
-      goals: 45,
-      assists: 12,
-      matches: 38,
-      rating: 8.5
+  const playerData: { [key: string]: any } = {
+    'lionel-messi': {
+      name: 'Lionel Messi',
+      fullName: 'Lionel Andrés Messi',
+      currentTeam: 'Inter Miami',
+      position: 'Right Winger',
+      nationality: 'Argentina',
+      flag: '🇦🇷',
+      age: 37,
+      height: '1.70m',
+      marketValue: '€25.00m',
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/lionel-messi-argentina-2022-1670235169-95573.jpg?lm=1670235507',
+      description: 'Lionel Messi is widely regarded as one of the greatest football players of all time.',
+      careerStats: { appearances: 1069, goals: 838, assists: 378, yellowCards: 105 },
+      achievements: ['8 Ballon d\'Or awards', 'FIFA World Cup winner 2022', '4 UEFA Champions League titles'],
+      previousClubs: [
+        { club: 'FC Barcelona', years: '2004-2021', appearances: 778, goals: 672 },
+        { club: 'Paris Saint-Germain', years: '2021-2023', appearances: 75, goals: 32 }
+      ]
     },
-    bio: 'A talented footballer known for exceptional skills and dedication to the sport.'
+    'cristiano-ronaldo': {
+      name: 'Cristiano Ronaldo',
+      fullName: 'Cristiano Ronaldo dos Santos Aveiro',
+      currentTeam: 'Al Nassr',
+      position: 'Centre-Forward',
+      nationality: 'Portugal',
+      flag: '🇵🇹',
+      age: 39,
+      height: '1.87m',
+      marketValue: '€15.00m',
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/cristiano-ronaldo-portugal-wm-2022-1670235324-95847.jpg?lm=1670235398',
+      description: 'Cristiano Ronaldo is one of the most successful footballers in history.',
+      careerStats: { appearances: 1235, goals: 908, assists: 255, yellowCards: 156 },
+      achievements: ['5 Ballon d\'Or awards', '5 UEFA Champions League titles', 'European Championship winner 2016'],
+      previousClubs: [
+        { club: 'Manchester United', years: '2003-2009', appearances: 292, goals: 118 },
+        { club: 'Real Madrid', years: '2009-2018', appearances: 438, goals: 451 }
+      ]
+    }
   };
+
+  const player = playerData[playerId || ''];
+
+  if (!player) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Navigation />
+        <main className="pt-20 pb-20">
+          <div className="container mx-auto px-4 text-center">
+            <h1 className="text-4xl font-bold mb-4">Player Not Found</h1>
+            <Button onClick={() => navigate('/players')}>
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Players
+            </Button>
+          </div>
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      <main className="pt-20 md:pt-20 pb-20 md:pb-8">
-        <div className="container mx-auto px-4 space-y-8">
+      <main className="pt-20 pb-20">
+        <div className="container mx-auto px-4 max-w-6xl">
           
-          <div className="flex items-center space-x-4 mb-6">
-            <button 
-              onClick={() => navigate('/players')}
-              className="flex items-center space-x-2 text-primary hover:text-primary/80 transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              <span>Back to Players</span>
-            </button>
+          <Button variant="outline" onClick={() => navigate('/players')} className="mb-6">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Players
+          </Button>
+
+          <div className="text-center mb-8">
+            <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden bg-white shadow-lg">
+              <img src={player.photo} alt={player.name} className="w-full h-full object-cover object-top" />
+            </div>
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
+              {player.name}
+            </h1>
+            <p className="text-xl text-muted-foreground mb-4">{player.fullName}</p>
+            <div className="flex items-center justify-center space-x-4">
+              <Badge variant="secondary" className="text-lg px-4 py-2">{player.currentTeam}</Badge>
+              <span className="text-3xl">{player.flag}</span>
+            </div>
           </div>
 
-          <div className="glass-card p-8 rounded-xl max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="text-center md:text-left">
-                <div className="w-32 h-32 mx-auto md:mx-0 mb-6 rounded-full overflow-hidden bg-muted/20 border-4 border-primary/20">
-                  <img 
-                    src={player.photo} 
-                    alt={player.name}
-                    className="w-full h-full object-cover"
-                  />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center space-x-2">
+                  <User className="w-5 h-5 text-primary" />
+                  <span>Player Information</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <Target className="w-4 h-4 text-muted-foreground" />
+                  <span className="text-sm">Position: {player.position}</span>
                 </div>
-                <h1 className="text-3xl font-bold text-foreground mb-2">{player.name}</h1>
-                <p className="text-xl text-muted-foreground mb-4">{player.team}</p>
-                <p className="text-muted-foreground">{player.bio}</p>
-              </div>
-              
-              <div className="space-y-6">
-                <div>
-                  <h2 className="text-2xl font-bold text-foreground mb-4">Player Info</h2>
-                  <div className="space-y-3">
-                    <div className="flex items-center space-x-3">
-                      <Target className="w-5 h-5 text-primary" />
-                      <span className="text-muted-foreground">Position:</span>
-                      <span className="text-foreground font-medium">{player.position}</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <User className="w-5 h-5 text-primary" />
-                      <span className="text-muted-foreground">Age:</span>
-                      <span className="text-foreground font-medium">{player.age}</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <span className="text-lg">{player.nationality}</span>
-                      <span className="text-muted-foreground">Nationality</span>
-                    </div>
+                <div className="flex items-center space-x-3">
+                  <MapPin className="w-4 h-4 text-muted-foreground" />
+                  <span className="text-sm">Nationality: {player.nationality}</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Calendar className="w-4 h-4 text-muted-foreground" />
+                  <span className="text-sm">Age: {player.age}</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <TrendingUp className="w-4 h-4 text-muted-foreground" />
+                  <span className="text-sm">Market Value: {player.marketValue}</span>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Career Statistics</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center p-3 bg-muted/20 rounded-lg">
+                    <div className="text-2xl font-bold text-primary">{player.careerStats.goals}</div>
+                    <div className="text-xs text-muted-foreground">Goals</div>
+                  </div>
+                  <div className="text-center p-3 bg-muted/20 rounded-lg">
+                    <div className="text-2xl font-bold text-primary">{player.careerStats.assists}</div>
+                    <div className="text-xs text-muted-foreground">Assists</div>
                   </div>
                 </div>
-                
-                <div>
-                  <h2 className="text-2xl font-bold text-foreground mb-4">Season Stats</h2>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="glass-card p-4 rounded-lg text-center">
-                      <div className="text-2xl font-bold text-primary">{player.stats.goals}</div>
-                      <div className="text-sm text-muted-foreground">Goals</div>
-                    </div>
-                    <div className="glass-card p-4 rounded-lg text-center">
-                      <div className="text-2xl font-bold text-primary">{player.stats.assists}</div>
-                      <div className="text-sm text-muted-foreground">Assists</div>
-                    </div>
-                    <div className="glass-card p-4 rounded-lg text-center">
-                      <div className="text-2xl font-bold text-primary">{player.stats.matches}</div>
-                      <div className="text-sm text-muted-foreground">Matches</div>
-                    </div>
-                    <div className="glass-card p-4 rounded-lg text-center">
-                      <div className="text-2xl font-bold text-primary">{player.stats.rating}</div>
-                      <div className="text-sm text-muted-foreground">Rating</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center space-x-2">
+                  <Trophy className="w-5 h-5 text-yellow-500" />
+                  <span>Major Achievements</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2">
+                  {player.achievements.map((achievement: string, index: number) => (
+                    <li key={index} className="text-sm flex items-center space-x-2">
+                      <Star className="w-3 h-3 text-yellow-500" />
+                      <span>{achievement}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
           </div>
 
         </div>
       </main>
+      
+      <Footer />
     </div>
   );
 };
