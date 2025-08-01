@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -8,8 +8,9 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog';
 import { useToast } from '@/hooks/use-toast';
-import { Plus, Minus, Save, Play, Clock, Users } from 'lucide-react';
+import { Plus, Minus, Save, Play, Clock, Users, Square, Trophy } from 'lucide-react';
 
 interface Player {
   id: string;
@@ -26,10 +27,13 @@ interface Team {
 const CreateMatch = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
   
   const [matchTitle, setMatchTitle] = useState('');
   const [matchTime, setMatchTime] = useState('90');
   const [currentTime, setCurrentTime] = useState('0');
+  const [isMatchRunning, setIsMatchRunning] = useState(false);
+  const [showEndDialog, setShowEndDialog] = useState(false);
   const [team1, setTeam1] = useState<Team>({
     name: '',
     players: [{ id: '1', name: '', position: 'GK' }],
@@ -42,6 +46,75 @@ const CreateMatch = () => {
   });
 
   const positions = ['GK', 'DEF', 'MID', 'FWD'];
+
+  // Timer functionality
+  useEffect(() => {
+    if (isMatchRunning) {
+      timerRef.current = setInterval(() => {
+        setCurrentTime(prevTime => {
+          const newTime = parseInt(prevTime) + 1;
+          if (newTime >= parseInt(matchTime)) {
+            setIsMatchRunning(false);
+            setShowEndDialog(true);
+            if (timerRef.current) {
+              clearInterval(timerRef.current);
+            }
+            return matchTime;
+          }
+          return newTime.toString();
+        });
+      }, 1000); // 1 second = 1 minute for demo purposes
+    } else {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    }
+
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, [isMatchRunning, matchTime]);
+
+  const startMatch = () => {
+    if (!matchTitle || !team1.name || !team2.name) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in match title and team names to start the match.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsMatchRunning(true);
+    toast({
+      title: "Match Started!",
+      description: `${team1.name} vs ${team2.name} is now live!`,
+    });
+  };
+
+  const stopMatch = () => {
+    setIsMatchRunning(false);
+    setShowEndDialog(true);
+  };
+
+  const handleEndMatch = (save: boolean) => {
+    if (save) {
+      saveMatch();
+    } else {
+      // Reset match
+      setMatchTitle('');
+      setTeam1({ name: '', players: [{ id: '1', name: '', position: 'GK' }], score: 0 });
+      setTeam2({ name: '', players: [{ id: '1', name: '', position: 'GK' }], score: 0 });
+      setCurrentTime('0');
+      toast({
+        title: "Match Deleted",
+        description: "The match has been deleted.",
+      });
+    }
+    setShowEndDialog(false);
+  };
 
   const addPlayer = (teamNumber: 1 | 2) => {
     const newPlayer: Player = {
@@ -444,15 +517,68 @@ const CreateMatch = () => {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-in-up" style={{ animationDelay: '0.5s' }}>
-            <Button onClick={previewMatch} variant="outline" size="lg">
-              <Play className="w-5 h-5 mr-2" />
-              Preview Match
-            </Button>
-            <Button onClick={saveMatch} size="lg" className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700">
-              <Save className="w-5 h-5 mr-2" />
-              Save Match
-            </Button>
+            {!isMatchRunning ? (
+              <>
+                <Button onClick={previewMatch} variant="outline" size="lg">
+                  <Play className="w-5 h-5 mr-2" />
+                  Preview Match
+                </Button>
+                <Button onClick={startMatch} size="lg" className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700">
+                  <Play className="w-5 h-5 mr-2" />
+                  Start Match
+                </Button>
+                <Button onClick={saveMatch} variant="outline" size="lg">
+                  <Save className="w-5 h-5 mr-2" />
+                  Save Match
+                </Button>
+              </>
+            ) : (
+              <Button onClick={stopMatch} variant="destructive" size="lg">
+                <Square className="w-5 h-5 mr-2" />
+                Stop Match
+              </Button>
+            )}
           </div>
+
+          {/* End Match Dialog */}
+          <AlertDialog open={showEndDialog} onOpenChange={setShowEndDialog}>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle className="flex items-center space-x-2">
+                  <Trophy className="w-6 h-6 text-yellow-500" />
+                  <span>Match Finished!</span>
+                </AlertDialogTitle>
+                <AlertDialogDescription>
+                  <div className="text-center py-4">
+                    <div className="text-2xl font-bold mb-4">Final Score</div>
+                    <div className="flex items-center justify-center space-x-6 mb-4">
+                      <div className="text-center">
+                        <div className="text-lg font-bold text-blue-500">{team1.name}</div>
+                        <div className="text-4xl font-bold">{team1.score}</div>
+                      </div>
+                      <div className="text-2xl font-bold text-muted-foreground">-</div>
+                      <div className="text-center">
+                        <div className="text-lg font-bold text-red-500">{team2.name}</div>
+                        <div className="text-4xl font-bold">{team2.score}</div>
+                      </div>
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      Full Time: {matchTime} minutes
+                    </div>
+                  </div>
+                  Would you like to save this match result or delete it?
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel onClick={() => handleEndMatch(false)}>
+                  Delete Match
+                </AlertDialogCancel>
+                <AlertDialogAction onClick={() => handleEndMatch(true)}>
+                  Save Match
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
           
         </div>
       </main>
