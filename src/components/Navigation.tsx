@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Trophy, Home, Calendar, Users, User, Bell, Menu, X, Sun, Moon } from 'lucide-react';
+import { Trophy, Home, Calendar, Users, User, Bell, Menu, X, Sun, Moon, Plus } from 'lucide-react';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -85,6 +85,19 @@ const Navigation = () => {
               );
             })}
             
+            {/* Create Match Button */}
+            <button
+              onClick={() => handleNavigation('/create-match')}
+              className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 bg-gradient-to-r from-green-600 to-blue-600 text-white hover:from-green-700 hover:to-blue-700 ${
+                location.pathname === '/create-match'
+                  ? 'ring-2 ring-green-400'
+                  : ''
+              }`}
+            >
+              <Plus className="w-4 h-4" />
+              <span className="font-medium">Create Match</span>
+            </button>
+            
             {/* Notifications */}
             <button
               onClick={() => handleNavigation('/notifications')}
@@ -144,6 +157,20 @@ const Navigation = () => {
                   </button>
                 );
               })}
+              
+              {/* Mobile Create Match Button */}
+              <button
+                onClick={() => handleNavigation('/create-match')}
+                className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 bg-gradient-to-r from-green-600 to-blue-600 text-white ${
+                  location.pathname === '/create-match'
+                    ? 'ring-2 ring-green-400'
+                    : ''
+                }`}
+              >
+                <Plus className="w-5 h-5" />
+                <span className="font-medium">Create Match</span>
+              </button>
+              
               <button
                 onClick={() => handleNavigation('/notifications')}
                 className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${

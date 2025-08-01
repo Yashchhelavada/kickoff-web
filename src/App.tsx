@@ -11,6 +11,7 @@ import Teams from "./pages/Teams";
 import Players from "./pages/Players";
 import PlayerDetail from "./pages/PlayerDetail";
 import Notifications from "./pages/Notifications";
+import CreateMatch from "./pages/CreateMatch";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/players" element={<Players />} />
           <Route path="/player/:playerId" element={<PlayerDetail />} />
           <Route path="/notifications" element={<Notifications />} />
+          <Route path="/create-match" element={<CreateMatch />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
