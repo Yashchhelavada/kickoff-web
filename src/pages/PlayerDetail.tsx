@@ -163,6 +163,196 @@ const PlayerDetail = () => {
         { club: 'FC Barcelona', years: '1998-2015', appearances: 767, goals: 85 },
         { club: 'Al Sadd', years: '2015-2019', appearances: 87, goals: 12 }
       ]
+    },
+    'ronaldo-nazario': {
+      name: 'Ronaldo Nazário',
+      fullName: 'Ronaldo Luís Nazário de Lima',
+      currentTeam: 'Retired',
+      position: 'Centre-Forward',
+      nationality: 'Brazil',
+      flag: '🇧🇷',
+      age: 48,
+      height: '1.83m',
+      marketValue: 'Retired',
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/ronaldo-nazario-brazil-2002-1606142667-63967.jpg?lm=1606142799',
+      description: 'The original Ronaldo was probably the fastest, most powerful striker running with the ball in the history of the game.',
+      careerStats: { appearances: 518, goals: 414, assists: 67, yellowCards: 42 },
+      achievements: ['2x FIFA World Cup winner', '2x Ballon d\'Or winner', '3x FIFA World Player of the Year'],
+      previousClubs: [
+        { club: 'Real Madrid', years: '2002-2007', appearances: 177, goals: 104 },
+        { club: 'Inter Milan', years: '1997-2002', appearances: 99, goals: 59 }
+      ]
+    },
+    'ronaldinho': {
+      name: 'Ronaldinho',
+      fullName: 'Ronaldo de Assis Moreira',
+      currentTeam: 'Retired',
+      position: 'Attacking Midfielder',
+      nationality: 'Brazil',
+      flag: '🇧🇷',
+      age: 44,
+      height: '1.81m',
+      marketValue: 'Retired',
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/ronaldinho-barcelona-2003-2008-1606142467-63897.jpg?lm=1606142599',
+      description: 'If longevity were not a factor, Ronaldinho would certainly be a candidate for greatest of all time.',
+      careerStats: { appearances: 698, goals: 266, assists: 162, yellowCards: 85 },
+      achievements: ['FIFA World Cup winner', 'Ballon d\'Or winner', '2x FIFA World Player of the Year'],
+      previousClubs: [
+        { club: 'FC Barcelona', years: '2003-2008', appearances: 207, goals: 94 },
+        { club: 'AC Milan', years: '2008-2011', appearances: 95, goals: 26 }
+      ]
+    },
+    'zlatan-ibrahimovic': {
+      name: 'Zlatan Ibrahimović',
+      fullName: 'Zlatan Ibrahimović',
+      currentTeam: 'Retired',
+      position: 'Centre-Forward',
+      nationality: 'Sweden',
+      flag: '🇸🇪',
+      age: 43,
+      height: '1.95m',
+      marketValue: 'Retired',
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/zlatan-ibrahimovic-ac-milan-2019-2023-1606142967-64097.jpg?lm=1606143099',
+      description: 'The personification of artistry and brute force at the same time.',
+      careerStats: { appearances: 810, goals: 511, assists: 186, yellowCards: 125 },
+      achievements: ['12 league titles with 5 European clubs', '511 career goals', 'UEFA team of the year 4 times'],
+      previousClubs: [
+        { club: 'AC Milan', years: '2010-2012, 2019-2023', appearances: 163, goals: 93 },
+        { club: 'Paris Saint-Germain', years: '2012-2016', appearances: 180, goals: 156 }
+      ]
+    },
+    'kevin-de-bruyne': {
+      name: 'Kevin De Bruyne',
+      fullName: 'Kevin De Bruyne',
+      currentTeam: 'Manchester City',
+      position: 'Attacking Midfielder',
+      nationality: 'Belgium',
+      flag: '🇧🇪',
+      age: 33,
+      height: '1.81m',
+      marketValue: '€45.00m',
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/kevin-de-bruyne-manchester-city-2022-1670236469-95867.jpg?lm=1670236599',
+      description: 'The most consistently brilliant attacker on the most consistently brilliant team in Premier League history.',
+      careerStats: { appearances: 382, goals: 102, assists: 161, yellowCards: 89 },
+      achievements: ['Champions League winner', '6x Premier League champion', '3x League Player of the Season'],
+      previousClubs: [
+        { club: 'VfL Wolfsburg', years: '2014-2015', appearances: 51, goals: 16 },
+        { club: 'Chelsea', years: '2012-2014', appearances: 9, goals: 0 }
+      ]
+    },
+    'toni-kroos': {
+      name: 'Toni Kroos',
+      fullName: 'Toni Kroos',
+      currentTeam: 'Retired',
+      position: 'Central Midfielder',
+      nationality: 'Germany',
+      flag: '🇩🇪',
+      age: 34,
+      height: '1.83m',
+      marketValue: 'Retired',
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/toni-kroos-real-madrid-2022-1670236669-95997.jpg?lm=1670236799',
+      description: 'Passing the ball better than anybody, more accurately and more often.',
+      careerStats: { appearances: 465, goals: 28, assists: 81, yellowCards: 45 },
+      achievements: ['FIFA World Cup winner', '6x Champions League winner', '4x LaLiga winner'],
+      previousClubs: [
+        { club: 'Real Madrid', years: '2014-2024', appearances: 465, goals: 28 },
+        { club: 'Bayern Munich', years: '2007-2014', appearances: 205, goals: 25 }
+      ]
+    },
+    'sergio-ramos': {
+      name: 'Sergio Ramos',
+      fullName: 'Sergio Ramos García',
+      currentTeam: 'Sevilla',
+      position: 'Centre-Back',
+      nationality: 'Spain',
+      flag: '🇪🇸',
+      age: 38,
+      height: '1.84m',
+      marketValue: '€3.00m',
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/sergio-ramos-sevilla-2023-1670236969-96097.jpg?lm=1670237099',
+      description: 'The most important goal in Real Madrid\'s history came from his header in the 93rd minute.',
+      careerStats: { appearances: 671, goals: 101, assists: 40, yellowCards: 262 },
+      achievements: ['FIFA World Cup winner', '2x European Championship winner', '4x Champions League winner'],
+      previousClubs: [
+        { club: 'Real Madrid', years: '2005-2021', appearances: 671, goals: 101 },
+        { club: 'Paris Saint-Germain', years: '2021-2023', appearances: 58, goals: 4 }
+      ]
+    },
+    'karim-benzema': {
+      name: 'Karim Benzema',
+      fullName: 'Karim Mostafa Benzema',
+      currentTeam: 'Al-Ittihad',
+      position: 'Centre-Forward',
+      nationality: 'France',
+      flag: '🇫🇷',
+      age: 36,
+      height: '1.85m',
+      marketValue: '€20.00m',
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/karim-benzema-al-ittihad-2023-1670237169-96197.jpg?lm=1670237299',
+      description: 'Like great French wine, Benzema becomes even better with age.',
+      careerStats: { appearances: 648, goals: 354, assists: 165, yellowCards: 78 },
+      achievements: ['Ballon d\'Or winner', '5x Champions League winner', '4x LaLiga winner'],
+      previousClubs: [
+        { club: 'Real Madrid', years: '2009-2023', appearances: 648, goals: 354 },
+        { club: 'Olympique Lyon', years: '2004-2009', appearances: 148, goals: 66 }
+      ]
+    },
+    'robert-lewandowski': {
+      name: 'Robert Lewandowski',
+      fullName: 'Robert Lewandowski',
+      currentTeam: 'FC Barcelona',
+      position: 'Centre-Forward',
+      nationality: 'Poland',
+      flag: '🇵🇱',
+      age: 35,
+      height: '1.85m',
+      marketValue: '€15.00m',
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/robert-lewandowski-barcelona-2022-1670237369-96297.jpg?lm=1670237499',
+      description: 'One of the most consistent and technically brilliant forwards of the 21st century.',
+      careerStats: { appearances: 742, goals: 634, assists: 191, yellowCards: 89 },
+      achievements: ['Champions League winner', '10x Bundesliga champion', 'LaLiga winner'],
+      previousClubs: [
+        { club: 'Bayern Munich', years: '2014-2022', appearances: 375, goals: 344 },
+        { club: 'Borussia Dortmund', years: '2010-2014', appearances: 187, goals: 103 }
+      ]
+    },
+    'kaka': {
+      name: 'Kaká',
+      fullName: 'Ricardo Izecson dos Santos Leite',
+      currentTeam: 'Retired',
+      position: 'Attacking Midfielder',
+      nationality: 'Brazil',
+      flag: '🇧🇷',
+      age: 42,
+      height: '1.86m',
+      marketValue: 'Retired',
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/kaka-ac-milan-2003-2009-1606142767-64027.jpg?lm=1606142899',
+      description: 'The last Brazilian to be chosen as World Player of the Year constructed his career with methodical precision.',
+      careerStats: { appearances: 593, goals: 204, assists: 106, yellowCards: 45 },
+      achievements: ['FIFA World Cup winner', 'Ballon d\'Or winner', 'FIFA World Player of the Year'],
+      previousClubs: [
+        { club: 'AC Milan', years: '2003-2009, 2013-2014', appearances: 307, goals: 104 },
+        { club: 'Real Madrid', years: '2009-2013', appearances: 120, goals: 29 }
+      ]
+    },
+    'neymar': {
+      name: 'Neymar',
+      fullName: 'Neymar da Silva Santos Júnior',
+      currentTeam: 'Al Hilal',
+      position: 'Left Winger',
+      nationality: 'Brazil',
+      flag: '🇧🇷',
+      age: 32,
+      height: '1.75m',
+      marketValue: '€60.00m',
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/neymar-al-hilal-2023-1670237569-96397.jpg?lm=1670237699',
+      description: 'Brazil\'s all-time top goal scorer with exceptional magic, especially in his time with Barcelona.',
+      careerStats: { appearances: 504, goals: 287, assists: 167, yellowCards: 156 },
+      achievements: ['Champions League winner', '2x LaLiga winner', '5x Ligue 1 winner'],
+      previousClubs: [
+        { club: 'Paris Saint-Germain', years: '2017-2023', appearances: 173, goals: 118 },
+        { club: 'FC Barcelona', years: '2013-2017', appearances: 186, goals: 105 }
+      ]
     }
   };
 

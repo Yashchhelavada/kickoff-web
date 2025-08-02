@@ -22,6 +22,7 @@ interface Team {
   name: string;
   players: Player[];
   score: number;
+  goalScorers: string[];
 }
 
 const CreateMatch = () => {
@@ -37,12 +38,14 @@ const CreateMatch = () => {
   const [team1, setTeam1] = useState<Team>({
     name: '',
     players: [{ id: '1', name: '', position: 'GK' }],
-    score: 0
+    score: 0,
+    goalScorers: []
   });
   const [team2, setTeam2] = useState<Team>({
     name: '',
     players: [{ id: '1', name: '', position: 'GK' }],
-    score: 0
+    score: 0,
+    goalScorers: []
   });
 
   const positions = ['GK', 'DEF', 'MID', 'FWD'];
@@ -105,8 +108,8 @@ const CreateMatch = () => {
     } else {
       // Reset match
       setMatchTitle('');
-      setTeam1({ name: '', players: [{ id: '1', name: '', position: 'GK' }], score: 0 });
-      setTeam2({ name: '', players: [{ id: '1', name: '', position: 'GK' }], score: 0 });
+      setTeam1({ name: '', players: [{ id: '1', name: '', position: 'GK' }], score: 0, goalScorers: [] });
+      setTeam2({ name: '', players: [{ id: '1', name: '', position: 'GK' }], score: 0, goalScorers: [] });
       setCurrentTime('0');
       toast({
         title: "Match Deleted",
@@ -174,15 +177,49 @@ const CreateMatch = () => {
 
   const updateScore = (teamNumber: 1 | 2, increment: boolean) => {
     if (teamNumber === 1) {
-      setTeam1(prev => ({
-        ...prev,
-        score: increment ? prev.score + 1 : Math.max(0, prev.score - 1)
-      }));
+      const newScore = increment ? team1.score + 1 : Math.max(0, team1.score - 1);
+      if (increment && newScore > team1.score) {
+        // Add goal scorer
+        const playerName = prompt(`Who scored for ${team1.name}?`);
+        if (playerName) {
+          setTeam1(prev => ({
+            ...prev,
+            score: newScore,
+            goalScorers: [...prev.goalScorers, playerName]
+          }));
+        } else {
+          setTeam1(prev => ({ ...prev, score: newScore }));
+        }
+      } else if (!increment && newScore < team1.score) {
+        // Remove last goal scorer
+        setTeam1(prev => ({
+          ...prev,
+          score: newScore,
+          goalScorers: prev.goalScorers.slice(0, -1)
+        }));
+      }
     } else {
-      setTeam2(prev => ({
-        ...prev,
-        score: increment ? prev.score + 1 : Math.max(0, prev.score - 1)
-      }));
+      const newScore = increment ? team2.score + 1 : Math.max(0, team2.score - 1);
+      if (increment && newScore > team2.score) {
+        // Add goal scorer
+        const playerName = prompt(`Who scored for ${team2.name}?`);
+        if (playerName) {
+          setTeam2(prev => ({
+            ...prev,
+            score: newScore,
+            goalScorers: [...prev.goalScorers, playerName]
+          }));
+        } else {
+          setTeam2(prev => ({ ...prev, score: newScore }));
+        }
+      } else if (!increment && newScore < team2.score) {
+        // Remove last goal scorer
+        setTeam2(prev => ({
+          ...prev,
+          score: newScore,
+          goalScorers: prev.goalScorers.slice(0, -1)
+        }));
+      }
     }
   };
 
@@ -218,8 +255,8 @@ const CreateMatch = () => {
 
     // Reset form
     setMatchTitle('');
-    setTeam1({ name: '', players: [{ id: '1', name: '', position: 'GK' }], score: 0 });
-    setTeam2({ name: '', players: [{ id: '1', name: '', position: 'GK' }], score: 0 });
+    setTeam1({ name: '', players: [{ id: '1', name: '', position: 'GK' }], score: 0, goalScorers: [] });
+    setTeam2({ name: '', players: [{ id: '1', name: '', position: 'GK' }], score: 0, goalScorers: [] });
     setCurrentTime('0');
   };
 
@@ -318,6 +355,14 @@ const CreateMatch = () => {
                   <div className="text-center">
                     <div className="text-2xl font-bold text-blue-500 mb-2">{team1.name || 'Team 1'}</div>
                     <div className="text-6xl font-bold">{team1.score}</div>
+                    {team1.goalScorers.length > 0 && (
+                      <div className="text-sm text-muted-foreground mt-2">
+                        <p className="font-medium">⚽ Goal scorers:</p>
+                        {team1.goalScorers.map((scorer, i) => (
+                          <p key={i} className="text-xs">{scorer}</p>
+                        ))}
+                      </div>
+                    )}
                     {isMatchRunning && (
                       <div className="flex justify-center space-x-2 mt-4">
                         <Button
@@ -343,6 +388,14 @@ const CreateMatch = () => {
                   <div className="text-center">
                     <div className="text-2xl font-bold text-red-500 mb-2">{team2.name || 'Team 2'}</div>
                     <div className="text-6xl font-bold">{team2.score}</div>
+                    {team2.goalScorers.length > 0 && (
+                      <div className="text-sm text-muted-foreground mt-2">
+                        <p className="font-medium">⚽ Goal scorers:</p>
+                        {team2.goalScorers.map((scorer, i) => (
+                          <p key={i} className="text-xs">{scorer}</p>
+                        ))}
+                      </div>
+                    )}
                     {isMatchRunning && (
                       <div className="flex justify-center space-x-2 mt-4">
                         <Button
