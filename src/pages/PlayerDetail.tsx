@@ -49,6 +49,120 @@ const PlayerDetail = () => {
         { club: 'Manchester United', years: '2003-2009', appearances: 292, goals: 118 },
         { club: 'Real Madrid', years: '2009-2018', appearances: 438, goals: 451 }
       ]
+    },
+    'thierry-henry': {
+      name: 'Thierry Henry',
+      fullName: 'Thierry Daniel Henry',
+      currentTeam: 'Retired',
+      position: 'Centre-Forward',
+      nationality: 'France',
+      flag: '🇫🇷',
+      age: 47,
+      height: '1.88m',
+      marketValue: 'Retired',
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/thierry-henry-arsenal-1999-2007-1606142367-63827.jpg?lm=1606142490',
+      description: 'Thierry Henry revolutionized the role of the number 9 in soccer.',
+      careerStats: { appearances: 792, goals: 411, assists: 162, yellowCards: 75 },
+      achievements: ['FIFA World Cup winner', 'UEFA European Championship winner', '2 Premier League titles'],
+      previousClubs: [
+        { club: 'Arsenal', years: '1999-2007', appearances: 377, goals: 228 },
+        { club: 'FC Barcelona', years: '2007-2010', appearances: 121, goals: 49 }
+      ]
+    },
+    'zinedine-zidane': {
+      name: 'Zinedine Zidane',
+      fullName: 'Zinedine Yazid Zidane',
+      currentTeam: 'Retired',
+      position: 'Attacking Midfielder',
+      nationality: 'France',
+      flag: '🇫🇷',
+      age: 52,
+      height: '1.85m',
+      marketValue: 'Retired',
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/zinedine-zidane-real-madrid-2001-2006-1606140967-63625.jpg?lm=1606141098',
+      description: 'Zinedine Zidane transformed soccer into a form of art.',
+      careerStats: { appearances: 797, goals: 125, assists: 93, yellowCards: 71 },
+      achievements: ['FIFA World Cup winner', 'UEFA European Championship winner', 'Ballon d\'Or winner'],
+      previousClubs: [
+        { club: 'Juventus', years: '1996-2001', appearances: 212, goals: 31 },
+        { club: 'Real Madrid', years: '2001-2006', appearances: 230, goals: 49 }
+      ]
+    },
+    'luka-modric': {
+      name: 'Luka Modrić',
+      fullName: 'Luka Modrić',
+      currentTeam: 'Real Madrid',
+      position: 'Central Midfielder',
+      nationality: 'Croatia',
+      flag: '🇭🇷',
+      age: 39,
+      height: '1.72m',
+      marketValue: '€10.00m',
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/luka-modric-real-madrid-2022-1670235969-95677.jpg?lm=1670236101',
+      description: 'Luka Modrić is fundamental to creating Madrid\'s relentless winning culture.',
+      careerStats: { appearances: 534, goals: 39, assists: 80, yellowCards: 89 },
+      achievements: ['Ballon d\'Or winner', '6 UEFA Champions League titles', 'World Cup finalist'],
+      previousClubs: [
+        { club: 'Tottenham Hotspur', years: '2008-2012', appearances: 160, goals: 17 },
+        { club: 'Real Madrid', years: '2012-present', appearances: 534, goals: 39 }
+      ]
+    },
+    'kylian-mbappe': {
+      name: 'Kylian Mbappé',
+      fullName: 'Kylian Mbappé Lottin',
+      currentTeam: 'Real Madrid',
+      position: 'Centre-Forward',
+      nationality: 'France',
+      flag: '🇫🇷',
+      age: 26,
+      height: '1.78m',
+      marketValue: '€180.00m',
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/kylian-mbappe-france-2022-1670236169-95751.jpg?lm=1670236299',
+      description: 'Arguably the best soccer player in the world right now.',
+      careerStats: { appearances: 308, goals: 244, assists: 108, yellowCards: 34 },
+      achievements: ['FIFA World Cup winner', '7 Ligue 1 titles', '4 French Cup winners'],
+      previousClubs: [
+        { club: 'AS Monaco', years: '2015-2017', appearances: 60, goals: 27 },
+        { club: 'Paris Saint-Germain', years: '2017-2024', appearances: 308, goals: 244 }
+      ]
+    },
+    'andres-iniesta': {
+      name: 'Andrés Iniesta',
+      fullName: 'Andrés Iniesta Luján',
+      currentTeam: 'Emirates Club',
+      position: 'Central Midfielder',
+      nationality: 'Spain',
+      flag: '🇪🇸',
+      age: 40,
+      height: '1.71m',
+      marketValue: '€2.00m',
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/andres-iniesta-barcelona-2009-2018-1606141467-63697.jpg?lm=1606141598',
+      description: 'An elegant, skillful playmaker who scored the goal that won Spain their first World Cup.',
+      careerStats: { appearances: 674, goals: 57, assists: 135, yellowCards: 50 },
+      achievements: ['FIFA World Cup winner', '2 UEFA European Championship titles', '4 UEFA Champions League titles'],
+      previousClubs: [
+        { club: 'FC Barcelona', years: '2002-2018', appearances: 674, goals: 57 },
+        { club: 'Vissel Kobe', years: '2018-2023', appearances: 134, goals: 26 }
+      ]
+    },
+    'xavi-hernandez': {
+      name: 'Xavi Hernández',
+      fullName: 'Xavier Hernández Creus',
+      currentTeam: 'Al Sadd (Coach)',
+      position: 'Central Midfielder',
+      nationality: 'Spain',
+      flag: '🇪🇸',
+      age: 44,
+      height: '1.70m',
+      marketValue: 'Retired',
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/xavi-hernandez-barcelona-2009-2015-1606141567-63717.jpg?lm=1606141699',
+      description: 'Arguably the game\'s best-ever passer who registered 20 assists in 35 LaLiga matches.',
+      careerStats: { appearances: 767, goals: 85, assists: 185, yellowCards: 89 },
+      achievements: ['FIFA World Cup winner', '2 UEFA European Championship titles', '8 LaLiga titles'],
+      previousClubs: [
+        { club: 'FC Barcelona', years: '1998-2015', appearances: 767, goals: 85 },
+        { club: 'Al Sadd', years: '2015-2019', appearances: 87, goals: 12 }
+      ]
     }
   };
 

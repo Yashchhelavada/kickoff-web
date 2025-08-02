@@ -23,36 +23,12 @@ const Players = () => {
       photo: 'https://tmssl.akamaized.net/images/foto/galerie/cristiano-ronaldo-portugal-wm-2022-1670235324-95847.jpg?lm=1670235398'
     },
     { 
-      name: 'Xavi Hernandez', 
-      team: 'Barcelona', 
-      position: 'Midfielder', 
-      nationality: '🇪🇸', 
-      age: 44,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/8022-1694610602.jpg?lm=1694610602'
-    },
-    { 
-      name: 'Iniesta', 
-      team: 'Vissel Kobe', 
-      position: 'Midfielder', 
-      nationality: '🇪🇸', 
-      age: 40,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/7600-1694427853.jpg?lm=1694427853'
-    },
-    { 
       name: 'Thierry Henry', 
       team: 'Arsenal', 
       position: 'Forward', 
       nationality: '🇫🇷', 
       age: 47,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/3207-1611929715.jpg?lm=1611929715'
-    },
-    { 
-      name: 'Ronaldinho', 
-      team: 'Barcelona', 
-      position: 'Forward', 
-      nationality: '🇧🇷', 
-      age: 44,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/3373-1611929679.jpg?lm=1611929679'
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/thierry-henry-arsenal-1999-2007-1606142367-63827.jpg?lm=1606142490'
     },
     { 
       name: 'Zinedine Zidane', 
@@ -60,20 +36,124 @@ const Players = () => {
       position: 'Midfielder', 
       nationality: '🇫🇷', 
       age: 52,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/3111-1639050949.jpg?lm=1639050949'
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/zinedine-zidane-real-madrid-2001-2006-1606140967-63625.jpg?lm=1606141098'
+    },
+    { 
+      name: 'Luka Modric', 
+      team: 'Real Madrid', 
+      position: 'Midfielder', 
+      nationality: '🇭🇷', 
+      age: 39,
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/luka-modric-real-madrid-2022-1670235969-95677.jpg?lm=1670236101'
+    },
+    { 
+      name: 'Kylian Mbappe', 
+      team: 'Real Madrid', 
+      position: 'Forward', 
+      nationality: '🇫🇷', 
+      age: 26,
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/kylian-mbappe-france-2022-1670236169-95751.jpg?lm=1670236299'
+    },
+    { 
+      name: 'Andres Iniesta', 
+      team: 'Emirates Club', 
+      position: 'Midfielder', 
+      nationality: '🇪🇸', 
+      age: 40,
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/andres-iniesta-barcelona-2009-2018-1606141467-63697.jpg?lm=1606141598'
+    },
+    { 
+      name: 'Xavi Hernandez', 
+      team: 'Al Sadd', 
+      position: 'Midfielder', 
+      nationality: '🇪🇸', 
+      age: 44,
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/xavi-hernandez-barcelona-2009-2015-1606141567-63717.jpg?lm=1606141699'
+    },
+    { 
+      name: 'Ronaldo Nazario', 
+      team: 'Retired', 
+      position: 'Forward', 
+      nationality: '🇧🇷', 
+      age: 48,
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/ronaldo-nazario-brazil-2002-1606142667-63967.jpg?lm=1606142799'
+    },
+    { 
+      name: 'Ronaldinho', 
+      team: 'Retired', 
+      position: 'Forward', 
+      nationality: '🇧🇷', 
+      age: 44,
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/ronaldinho-barcelona-2003-2008-1606142467-63897.jpg?lm=1606142599'
+    },
+    { 
+      name: 'Zlatan Ibrahimovic', 
+      team: 'Retired', 
+      position: 'Forward', 
+      nationality: '🇸🇪', 
+      age: 43,
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/zlatan-ibrahimovic-ac-milan-2019-2023-1606142967-64097.jpg?lm=1606143099'
+    },
+    { 
+      name: 'Kevin De Bruyne', 
+      team: 'Manchester City', 
+      position: 'Midfielder', 
+      nationality: '🇧🇪', 
+      age: 33,
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/kevin-de-bruyne-manchester-city-2022-1670236469-95867.jpg?lm=1670236599'
+    },
+    { 
+      name: 'Toni Kroos', 
+      team: 'Retired', 
+      position: 'Midfielder', 
+      nationality: '🇩🇪', 
+      age: 34,
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/toni-kroos-real-madrid-2022-1670236669-95997.jpg?lm=1670236799'
+    },
+    { 
+      name: 'Sergio Ramos', 
+      team: 'Sevilla', 
+      position: 'Defender', 
+      nationality: '🇪🇸', 
+      age: 38,
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/sergio-ramos-sevilla-2023-1670236969-96097.jpg?lm=1670237099'
+    },
+    { 
+      name: 'Karim Benzema', 
+      team: 'Al-Ittihad', 
+      position: 'Forward', 
+      nationality: '🇫🇷', 
+      age: 36,
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/karim-benzema-al-ittihad-2023-1670237169-96197.jpg?lm=1670237299'
+    },
+    { 
+      name: 'Robert Lewandowski', 
+      team: 'Barcelona', 
+      position: 'Forward', 
+      nationality: '🇵🇱', 
+      age: 35,
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/robert-lewandowski-barcelona-2022-1670237369-96297.jpg?lm=1670237499'
     },
     { 
       name: 'Kaka', 
-      team: 'AC Milan', 
+      team: 'Retired', 
       position: 'Midfielder', 
       nationality: '🇧🇷', 
       age: 42,
-      photo: 'https://img.a.transfermarkt.technology/portrait/big/3368-1611929668.jpg?lm=1611929668'
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/kaka-ac-milan-2003-2009-1606142767-64027.jpg?lm=1606142899'
+    },
+    { 
+      name: 'Neymar', 
+      team: 'Al Hilal', 
+      position: 'Forward', 
+      nationality: '🇧🇷', 
+      age: 32,
+      photo: 'https://tmssl.akamaized.net/images/foto/galerie/neymar-al-hilal-2023-1670237569-96397.jpg?lm=1670237699'
     }
   ];
 
   const handlePlayerClick = (player: any) => {
-    navigate(`/player/${player.name.toLowerCase().replace(' ', '-')}`);
+    navigate(`/player/${player.name.toLowerCase().replace(/\s+/g, '-')}`);
   };
 
   return (

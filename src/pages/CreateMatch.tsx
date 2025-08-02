@@ -303,34 +303,107 @@ const CreateMatch = () => {
             </CardContent>
           </Card>
 
+          {/* Match Preview */}
+          <Card className="mb-8 animate-slide-in-up" style={{ animationDelay: '0.2s' }}>
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <Clock className="w-5 h-5 text-primary" />
+                <span>Match Preview</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-center py-8">
+                <h2 className="text-3xl font-bold mb-4">{matchTitle || 'Your Custom Match'}</h2>
+                <div className="flex items-center justify-center space-x-8 mb-6">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-blue-500 mb-2">{team1.name || 'Team 1'}</div>
+                    <div className="text-6xl font-bold">{team1.score}</div>
+                    {isMatchRunning && (
+                      <div className="flex justify-center space-x-2 mt-4">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => updateScore(1, false)}
+                          disabled={team1.score <= 0}
+                        >
+                          <Minus className="w-4 h-4" />
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => updateScore(1, true)}
+                        >
+                          <Plus className="w-4 h-4" />
+                        </Button>
+                      </div>
+                    )}
+                    <div className="text-sm text-muted-foreground mt-2">{team1.players.length} players</div>
+                  </div>
+                  <div className="text-4xl font-bold text-muted-foreground">VS</div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-red-500 mb-2">{team2.name || 'Team 2'}</div>
+                    <div className="text-6xl font-bold">{team2.score}</div>
+                    {isMatchRunning && (
+                      <div className="flex justify-center space-x-2 mt-4">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => updateScore(2, false)}
+                          disabled={team2.score <= 0}
+                        >
+                          <Minus className="w-4 h-4" />
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => updateScore(2, true)}
+                        >
+                          <Plus className="w-4 h-4" />
+                        </Button>
+                      </div>
+                    )}
+                    <div className="text-sm text-muted-foreground mt-2">{team2.players.length} players</div>
+                  </div>
+                </div>
+                <div className="flex items-center justify-center space-x-2 text-muted-foreground">
+                  <Clock className="w-4 h-4" />
+                  <span>{currentTime}' / {matchTime}'</span>
+                  {isMatchRunning && <span className="text-green-500 ml-2">● LIVE</span>}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Teams Configuration */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
             
             {/* Team 1 */}
-            <Card className="animate-slide-in-up" style={{ animationDelay: '0.2s' }}>
+            <Card className="animate-slide-in-up" style={{ animationDelay: '0.3s' }}>
               <CardHeader>
                 <CardTitle className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
                     <Users className="w-5 h-5 text-blue-500" />
                     <span>Team 1</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => updateScore(1, false)}
-                    >
-                      <Minus className="w-4 h-4" />
-                    </Button>
-                    <span className="text-2xl font-bold text-blue-500">{team1.score}</span>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => updateScore(1, true)}
-                    >
-                      <Plus className="w-4 h-4" />
-                    </Button>
-                  </div>
+                  {!isMatchRunning && (
+                    <div className="flex items-center space-x-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => updateScore(1, false)}
+                      >
+                        <Minus className="w-4 h-4" />
+                      </Button>
+                      <span className="text-2xl font-bold text-blue-500">{team1.score}</span>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => updateScore(1, true)}
+                      >
+                        <Plus className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  )}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -395,30 +468,32 @@ const CreateMatch = () => {
             </Card>
 
             {/* Team 2 */}
-            <Card className="animate-slide-in-up" style={{ animationDelay: '0.3s' }}>
+            <Card className="animate-slide-in-up" style={{ animationDelay: '0.4s' }}>
               <CardHeader>
                 <CardTitle className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
                     <Users className="w-5 h-5 text-red-500" />
                     <span>Team 2</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => updateScore(2, false)}
-                    >
-                      <Minus className="w-4 h-4" />
-                    </Button>
-                    <span className="text-2xl font-bold text-red-500">{team2.score}</span>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => updateScore(2, true)}
-                    >
-                      <Plus className="w-4 h-4" />
-                    </Button>
-                  </div>
+                  {!isMatchRunning && (
+                    <div className="flex items-center space-x-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => updateScore(2, false)}
+                      >
+                        <Minus className="w-4 h-4" />
+                      </Button>
+                      <span className="text-2xl font-bold text-red-500">{team2.score}</span>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => updateScore(2, true)}
+                      >
+                        <Plus className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  )}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -483,37 +558,6 @@ const CreateMatch = () => {
             </Card>
           </div>
 
-          {/* Match Preview */}
-          <Card className="mb-8 animate-slide-in-up" style={{ animationDelay: '0.4s' }}>
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <Clock className="w-5 h-5 text-primary" />
-                <span>Match Preview</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-center py-8">
-                <h2 className="text-3xl font-bold mb-4">{matchTitle || 'Your Custom Match'}</h2>
-                <div className="flex items-center justify-center space-x-8 mb-6">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-blue-500 mb-2">{team1.name || 'Team 1'}</div>
-                    <div className="text-6xl font-bold">{team1.score}</div>
-                    <div className="text-sm text-muted-foreground mt-2">{team1.players.length} players</div>
-                  </div>
-                  <div className="text-4xl font-bold text-muted-foreground">VS</div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-red-500 mb-2">{team2.name || 'Team 2'}</div>
-                    <div className="text-6xl font-bold">{team2.score}</div>
-                    <div className="text-sm text-muted-foreground mt-2">{team2.players.length} players</div>
-                  </div>
-                </div>
-                <div className="flex items-center justify-center space-x-2 text-muted-foreground">
-                  <Clock className="w-4 h-4" />
-                  <span>{currentTime}' / {matchTime}'</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-in-up" style={{ animationDelay: '0.5s' }}>

@@ -10,6 +10,7 @@ import Leagues from "./pages/Leagues";
 import Teams from "./pages/Teams";
 import Players from "./pages/Players";
 import PlayerDetail from "./pages/PlayerDetail";
+import TeamDetail from "./pages/TeamDetail";
 import Notifications from "./pages/Notifications";
 import CreateMatch from "./pages/CreateMatch";
 import NotFound from "./pages/NotFound";
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/matches" element={<Matches />} />
           <Route path="/leagues" element={<Leagues />} />
           <Route path="/teams" element={<Teams />} />
+          <Route path="/team/:teamId" element={<TeamDetail />} />
           <Route path="/players" element={<Players />} />
           <Route path="/player/:playerId" element={<PlayerDetail />} />
           <Route path="/notifications" element={<Notifications />} />
